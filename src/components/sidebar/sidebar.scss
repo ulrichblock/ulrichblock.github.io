@@ -1,0 +1,26 @@
+.sidebar-main {
+  width: 100%;
+  padding-left: 1.5rem;
+}
+
+.side-social-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tech-tags {
+  font-family: 'Raleway';
+}
+
+.profile-img {
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px;
+}
+
+small, h3, p {
+  font-family: 'Raleway';
+}
+
+.author-bio {
+  font-size: 2vw;
+}

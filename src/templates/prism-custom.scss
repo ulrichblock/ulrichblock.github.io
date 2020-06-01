@@ -1,0 +1,97 @@
+/**
+ * If you only want to use line numbering
+ */
+.gatsby-highlight {
+  background-color: #fdf6e3;
+  border-radius: 0.3em;
+  padding: 0;
+  margin: .5em 0;
+  overflow-x: auto;
+  -ms-overflow-x: auto;
+}
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
+  padding: 0;
+  padding-left: 2.8em;
+  overflow: initial;
+}
+
+.command-line-prompt > span:before {
+  color: #999;
+  content: " ";
+  display: block;
+  padding-right: 0.8em;
+}
+
+/* Prompt for all users */
+.command-line-prompt > span[data-user]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] $";
+}
+
+/* Prompt for root */
+.command-line-prompt > span[data-user="root"]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] #";
+}
+
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt);
+}
+
+/* media queries for mobile view */
+.gatsby-highlight  {
+  box-shadow: 1px 1px 3px;
+  padding: 0 1em;
+  margin: 0;
+  max-width: 1400px;
+}
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+@media only screen and (max-width: 1700px) {
+  .gatsby-highlight {
+    max-width: 1150px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .gatsby-highlight {
+    max-width: 950px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .gatsby-highlight {
+    max-width: 750px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .gatsby-highlight {
+    max-width: 650px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .gatsby-highlight {
+    max-width: 600px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .gatsby-highlight {
+    max-width: 500px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .gatsby-highlight {
+    max-width: 350px;
+  }
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  white-space: normal;
+}

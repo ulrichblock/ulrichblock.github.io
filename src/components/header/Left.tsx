@@ -1,0 +1,23 @@
+import { Link } from 'gatsby'
+import React from 'react'
+
+export const Left = () => {
+  return (
+    <div className="head-left ml-4">
+      <div className="head-links">
+        <Link to="/" className="head-link">
+          Home
+        </Link>
+        <Link to="/generatoren/passwort-generator" className="head-link ml-3">
+          Passwort Generator
+        </Link>
+        <Link to="/impressum" className="head-link ml-3">
+          Impressum
+        </Link>
+        <Link to="/datenschutzerklaerung" className="head-link ml-3">
+          Datenschutz
+        </Link>
+      </div>
+    </div>
+  )
+}
