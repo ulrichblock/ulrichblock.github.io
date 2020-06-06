@@ -27,6 +27,8 @@ jobs:
         node-version: 12
     - name: yarn install
       run: yarn install
+    - name: eslint plugins
+      run: yarn install -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-react
     - name: eslint
       uses: icrawl/action-eslint@v1
       with:
