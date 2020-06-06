@@ -15,7 +15,7 @@ interface IProps {
   children?: ReactNode
 }
 
-export const Layout = ({ children }: IProps) => {
+export const Layout = ({ children }: IProps): JSX.Element => {
   return (
     <StaticQuery
       query={graphql`

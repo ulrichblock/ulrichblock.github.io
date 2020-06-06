@@ -1,5 +1,5 @@
 import { GatsbyCreatePages } from '../types'
-import _ from 'lodash'
+import { kebabCase } from './utils'
 import path from 'path'
 
 export const createPages: GatsbyCreatePages = async ({
@@ -29,47 +29,40 @@ export const createPages: GatsbyCreatePages = async ({
 
   // Create blog posts pages.
 
-  const posts = result.data.allMarkdownRemark.edges
-  posts.forEach(({ node }): void => {
+  // Tag pages:
+  const tags = new Set<string>()
+
+  for (const edge of result.data.allMarkdownRemark.edges) {
     createPage({
       component: path.resolve('./src/templates/blog-post.tsx'),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: node.fields.slug
+        slug: edge.node.fields.slug
       },
-      path: node.fields.slug
+      path: edge.node.fields.slug
     })
-  })
 
-  // Tag pages:
-  let tags = []
-
-  // Iterate through each post, putting all found tags into `tags`
-  _.each(posts, (edge): void => {
-    if (_.get(edge, 'node.frontmatter.tags')) {
-      tags = tags.concat(edge.node.frontmatter.tags)
+    for (const tag of edge.node.frontmatter.tags || []) {
+      tags.add(tag)
     }
-  })
-
-  // Eliminate duplicate tags
-  tags = _.uniq(tags)
+  }
 
   // Make tag pages
-  tags.forEach((tag): void => {
+  for (const tag of tags) {
     createPage({
       component: path.resolve('src/templates/tag.tsx'),
       context: {
         tag
       },
-      path: `/tags/${_.kebabCase(tag)}/`
+      path: `/tags/${kebabCase(tag)}/`
     })
-  })
+  }
 
   const postsPerPage = 10
-  const numPages = Math.ceil(posts.length / postsPerPage)
+  const numPages = Math.ceil(result.data.allMarkdownRemark.edges.length / postsPerPage)
 
-  Array.from({ length: numPages }).forEach((_unused, i): void => {
+  for (let i = 0; i < numPages; i++) {
     createPage({
       component: path.resolve('./src/templates/post-list.tsx'),
       context: {
@@ -80,7 +73,7 @@ export const createPages: GatsbyCreatePages = async ({
       },
       path: i === 0 ? '/' : `/${i + 1}`
     })
-  })
+  }
 }
 
 /**

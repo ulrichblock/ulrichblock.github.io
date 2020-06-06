@@ -9,7 +9,7 @@ module.exports = {
     siteUrl: URL,
     title: 'Ulrich Block',
     tagline: 'Autodidakt, Software Architekt, Developer',
-    description: `Hi, ich bin Ulrich Block. Ich schreibe diesen Blog und bin Development Expert bei der SAP.`,
+    description: 'Hi, ich bin Ulrich Block. Ich schreibe diesen Blog und bin Development Expert bei der SAP.',
     author: 'Ulrich Block',
     contacts: {
       linkedin: 'ulrich-block-267a0780',
@@ -33,39 +33,39 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/images`,
-        name: `images`
+        name: 'images'
       }
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`
+        name: 'blog'
       }
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/pages`,
-        name: `pages`
+        name: 'pages'
       }
     },
     {
-      resolve: `gatsby-plugin-canonical-urls`,
+      resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: URL,
         stripQueryString: true
       }
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
@@ -76,7 +76,13 @@ module.exports = {
             }
           },
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              ignoreFileExtensions: ['png', 'jpg', 'jpeg']
+            }
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
               // defaults to 'language-' (e.g. <pre class="language-js">).
@@ -109,7 +115,7 @@ module.exports = {
               // leave false and use the {numberLines: true} syntax below
               showLineNumbers: true,
               // If setting this to true, the parser won't handle and highlight inline
-              // code used in markdown i.e. single backtick code like `this`.
+              // code used in markdown i.e. single backtick code like 'this'.
               noInlineHighlight: false,
               // This adds a new language definition to Prism or extend an already
               // existing language definition. More details on this option can be
@@ -129,14 +135,13 @@ module.exports = {
               escapeEntities: {}
             }
           },
-          `gatsby-remark-responsive-iframe`,
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 200
+              maxWidth: 800
             }
           }
         ]
@@ -152,13 +157,13 @@ module.exports = {
     },
     'gatsby-plugin-robots-txt',
     {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      resolve: '@gatsby-contrib/gatsby-plugin-elasticlunr-search',
       options: {
         // Fields to index
-        fields: [`title`, `tags`, 'slugs'],
-        // How to resolve each field`s value for a supported node type
+        fields: ['title', 'tags', 'slugs'],
+        // How to resolve each field's value for a supported node type
         resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          // For any node of type MarkdownRemark, list how to resolve the fields' values
           MarkdownRemark: {
             date: node => node.frontmatter.date,
             path: node => node.fields.slug,
@@ -169,30 +174,12 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-purgecss`,
+      resolve: 'gatsby-plugin-purgecss',
       options: {
         printRejected: true, // Print removed selectors and processed file names
-        develop: false // Enable while using `gatsby develop`
-        // tailwind: true, // Enable tailwindcss support
-        // whitelist: ['whitelist'], // Don't remove this selector
-        // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
-        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+        develop: false // Enable while using 'gatsby develop'
       }
-    }
-    /*
-    {
-      // TODO align
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
-      }
-    }*/
-    // 'gatsby-plugin-offline'
+    },
+    'gatsby-plugin-offline'
   ]
 }

@@ -1,13 +1,9 @@
-import { ITag, TechTag } from './TechTag'
+import { ILabels } from '../../types'
 import React from 'react'
+import { TechTag } from './TechTag'
+import { kebabCase } from '../../lib/utils'
 
-function tagToSlug(value: string): string {
-  return Array.from(value.toLowerCase().matchAll(/([a-z0-9]+)/g))
-    .map(([, part]): string => part)
-    .join('-')
-}
-
-export function getTechTags(allTags: ITag[], usedTags: string[], noFilter = false): JSX.Element[] {
+export function getTechTags(allTags: ILabels[], usedTags?: string[], noFilter = false): JSX.Element[] {
   if (!Array.isArray(usedTags)) {
     return []
   }
@@ -15,7 +11,7 @@ export function getTechTags(allTags: ITag[], usedTags: string[], noFilter = fals
   const techTags: JSX.Element[] = []
 
   for (let i = 0; i < usedTags.length; i++) {
-    const definedTag = allTags.find(({ tag }: ITag): boolean => tag === usedTags[i])
+    const definedTag = allTags.find(({ tag }: ILabels): boolean => tag === usedTags[i])
 
     if (definedTag) {
       techTags.push(
@@ -33,7 +29,7 @@ export function getTechTags(allTags: ITag[], usedTags: string[], noFilter = fals
       techTags.push(
         <TechTag
           key={i}
-          tag={tagToSlug(usedTags[i])}
+          tag={kebabCase(usedTags[i])}
           tech={usedTags[i]}
           name=""
           size={20}

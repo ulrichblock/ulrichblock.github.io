@@ -35,6 +35,12 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       rules: {
+        // TODO: activate and resolve
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        // TODO end
+        '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/explicit-function-return-type': [
           'error',
           {
@@ -43,7 +49,6 @@ module.exports = {
             allowHigherOrderFunctions: false
           }
         ],
-        '@typescript-eslint/interface-name-prefix': ['error', { prefixWithI: 'always' }],
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: false, ignoreIIFE: false }],
@@ -76,6 +81,10 @@ module.exports = {
       rules: {
         '@typescript-eslint/camelcase': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
         '@typescript-eslint/no-var-requires': 'off'
       }
     },

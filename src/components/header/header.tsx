@@ -10,7 +10,7 @@ interface IProps {
   siteTitle?: string
 }
 
-export const Header = ({ contacts }: IProps) => {
+export const Header = ({ contacts }: IProps): JSX.Element => {
   return (
     <header className="head-main p-1 px-5">
       <Left />

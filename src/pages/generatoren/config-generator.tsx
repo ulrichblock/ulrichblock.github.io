@@ -3,7 +3,7 @@ import React from 'react'
 import { SEO } from '../../components/seo'
 import { Sidebar } from '../../components/sidebar/Sidebar'
 
-const ConfigGenerator = () => (
+const ConfigGenerator = (): JSX.Element => (
   <Layout>
     <SEO title="Config Generator" />
     <div className="post-page-main">

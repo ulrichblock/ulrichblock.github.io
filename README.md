@@ -5,16 +5,13 @@ It is realized with the static page generator [Gatsby](https://www.gatsbyjs.org/
 
 ### TODOs
 
-Before Release:
-- any non image files to GitHub
-
 After Release
 - Improve types
   - abstract central and extend per file
+  - use post-list.tsx as example and replace IProps
   - Each component/function with typed in/out
   - Enforce with eslint
 - For each page auto link to GitHub markdown or tsx file
-- More labels
 - Run deadlink test
 - Improve search result and add some fuzziness
   - Whitespace at "Game Server" should hit "Gameserver"

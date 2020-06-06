@@ -1,15 +1,15 @@
 import './blog-post.scss'
+import { IData, ILabels } from '../types'
+import { PageProps, graphql } from 'gatsby'
 import { CustomShareBlock } from '../components/CustomShareBlock'
-import { ITag } from '../components/tags/TechTag'
 import { Layout } from '../components/layout'
 import { PostHeader } from '../components/header/PostHeader'
 import React from 'react'
 import { SEO } from '../components/seo'
 import { Sidebar } from '../components/sidebar/Sidebar'
 import { getTechTags } from '../components/tags/TechTags'
-import { graphql } from 'gatsby'
 
-function techTopics(allTags: ITag[], tags: string[]): JSX.Element {
+function techTopics(allTags: ILabels[], tags?: string[]): JSX.Element {
   if (!tags || tags.length === 0) {
     return <div />
   }
@@ -22,7 +22,13 @@ function techTopics(allTags: ITag[], tags: string[]): JSX.Element {
   )
 }
 
-const BlogPost = props => {
+interface IPageContext {
+  slug: string
+}
+
+type PostListProps = PageProps<IData, IPageContext>
+
+const BlogPost = (props: PostListProps): JSX.Element => {
   const post = props.data.markdownRemark
   const siteName = props.data.site.siteMetadata.title
   const siteUrl = props.data.site.siteMetadata.url

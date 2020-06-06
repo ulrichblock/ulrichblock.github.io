@@ -7,6 +7,7 @@
 
 import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import { ISiteMetadata } from '../types'
 import React from 'react'
 import profile from '../images/profile-pic.jpg'
 
@@ -19,11 +20,16 @@ interface IProps {
   title: string
   lang?: string
   meta?: IMeta[]
-  keywords?: string[]
   description?: string
 }
 
-export const SEO = ({ description, lang, meta = [], title }: IProps) => {
+interface IData {
+  site: {
+    siteMetadata: ISiteMetadata
+  }
+}
+
+export const SEO = ({ description, lang, meta = [], title }: IProps): JSX.Element => {
   return (
     <StaticQuery
       query={graphql`
@@ -40,7 +46,7 @@ export const SEO = ({ description, lang, meta = [], title }: IProps) => {
           }
         }
       `}
-      render={data => (
+      render={(data: IData) => (
         <>
           <Helmet
             htmlAttributes={{

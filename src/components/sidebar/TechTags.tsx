@@ -1,5 +1,6 @@
-import { ITag, TechTag } from '../tags/TechTag'
+import { ILabels } from '../../types'
 import React from 'react'
+import { TechTag } from '../tags/TechTag'
 
 interface IPost {
   node: {
@@ -10,7 +11,7 @@ interface IPost {
 }
 
 interface IProps {
-  labels: ITag[]
+  labels: ILabels[]
   posts: IPost[]
 }
 
@@ -28,7 +29,7 @@ function getUsedTags(posts: IPost[]): string[] {
   return tags
 }
 
-function getTechTags(allTags: ITag[], posts: IPost[]): JSX.Element[] {
+function getTechTags(allTags: ILabels[], posts: IPost[]): JSX.Element[] {
   if (!Array.isArray(allTags) || !Array.isArray(posts)) {
     return []
   }
@@ -59,7 +60,7 @@ function getTechTags(allTags: ITag[], posts: IPost[]): JSX.Element[] {
  * Display of all configured tags.
  * A blog/page might contain more.
  */
-export const TechTags = ({ labels, posts }: IProps) => {
+export const TechTags = ({ labels, posts }: IProps): JSX.Element => {
   return (
     <>
       <h4 className="m-0">Tech Topics</h4>

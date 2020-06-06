@@ -3,7 +3,7 @@ import React from 'react'
 import { SEO } from '../../components/seo'
 import { Sidebar } from '../../components/sidebar/Sidebar'
 
-const SteamApps = () => (
+const SteamApps = (): JSX.Element => (
   <Layout>
     <SEO title="Steam Apps" />
     <div className="post-page-main">

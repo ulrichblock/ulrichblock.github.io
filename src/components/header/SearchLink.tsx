@@ -1,7 +1,7 @@
 import { FaSearch } from 'react-icons/fa'
 import React from 'react'
 
-export const SearchLink = () => {
+export const SearchLink = (): JSX.Element => {
   return (
     <div className="search-link mr-4">
       <a className="text-light ml-4" href={'/suche'}>

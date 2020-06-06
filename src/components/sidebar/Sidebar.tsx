@@ -5,7 +5,7 @@ import React from 'react'
 import { RecentPosts } from './RecentPosts'
 import { TechTags } from './TechTags'
 
-export const Sidebar = () => {
+export const Sidebar = (): JSX.Element => {
   return (
     <StaticQuery
       query={graphql`
@@ -51,7 +51,7 @@ export const Sidebar = () => {
           }
         }
       `}
-      render={data => (
+      render={(data): JSX.Element => (
         <>
           <div className="sidebar-main border-left">
             <Bio author={data.site.siteMetadata.author} tagline={data.site.siteMetadata.tagline} />

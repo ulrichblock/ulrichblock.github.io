@@ -7,7 +7,7 @@ interface IProps {
   title: string
 }
 
-export const PostHeader = ({ timeToRead, title, date }: IProps) => {
+export const PostHeader = ({ timeToRead, title, date }: IProps): JSX.Element => {
   return (
     <div className="post-header">
       <h1 className="mb-1">{title}</h1>

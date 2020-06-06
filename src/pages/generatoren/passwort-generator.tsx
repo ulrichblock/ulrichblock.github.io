@@ -179,9 +179,9 @@ function onClick(): boolean {
   generateSetPasswords()
   return false
 }
-const PasswortGenerator = () => (
+const PasswortGenerator = (): JSX.Element => (
   <Layout>
-    <SEO title="Passwort Generator" keywords={['password', 'passwort', 'generator']} />
+    <SEO title="Passwort Generator" />
     <div className="index-main">
       <div className="post-page-main">
         <form>

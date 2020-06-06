@@ -8,7 +8,7 @@ interface IProps {
   siteName: string
 }
 
-export const CustomShareBlock = ({ url, title, siteName }: IProps) => {
+export const CustomShareBlock = ({ url, title, siteName }: IProps): JSX.Element => {
   const shareBlockProps = {
     button: ShareButtonIconOnly,
     buttons: [

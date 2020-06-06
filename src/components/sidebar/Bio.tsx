@@ -7,7 +7,7 @@ interface IProps {
   tagline: string
 }
 
-export const Bio = ({ tagline }: IProps) => {
+export const Bio = ({ tagline }: IProps): JSX.Element => {
   return (
     <div className="bio-main w-100">
       <img src={profile} style={{ maxWidth: '100px' }} className="profile-img" alt="" />

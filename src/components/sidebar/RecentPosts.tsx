@@ -41,7 +41,7 @@ function getPostLinks(posts: IPost[]): JSX.Element[] {
   return postLinks
 }
 
-export const RecentPosts = ({ posts }: IProps) => {
+export const RecentPosts = ({ posts }: IProps): JSX.Element => {
   return (
     <>
       <h4 className="m-0">Letzte Artikel</h4>

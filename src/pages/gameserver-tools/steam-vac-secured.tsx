@@ -4,7 +4,7 @@ import React from 'react'
 import { SEO } from '../../components/seo'
 import { Sidebar } from '../../components/sidebar/Sidebar'
 
-const SteamVacSecured = () => (
+const SteamVacSecured = (): JSX.Element => (
   <Layout>
     <SEO title="Steam + VAC Secured?" />
     <div className="post-page-main">

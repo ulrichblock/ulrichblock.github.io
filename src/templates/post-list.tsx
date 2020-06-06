@@ -1,13 +1,21 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../pages/index.scss'
-import { Link, graphql } from 'gatsby'
+import { Link, PageProps, graphql } from 'gatsby'
+import { IData } from '../types'
 import { Layout } from '../components/layout'
 import React from 'react'
 import { SEO } from '../components/seo'
 import { Sidebar } from '../components/sidebar/Sidebar'
 import { getTechTags } from '../components/tags/TechTags'
 
-const PostList = props => {
+interface IPageContext {
+  currentPage: number
+  numPages: number
+}
+
+type PostListProps = PageProps<IData, IPageContext>
+
+const PostList = (props: PostListProps): JSX.Element => {
   const posts = props.data.allMarkdownRemark.edges
   const { currentPage, numPages } = props.pageContext
   const isFirst = currentPage === 1
@@ -15,10 +23,9 @@ const PostList = props => {
   const prevPage = currentPage - 1 === 1 ? '/' : (currentPage - 1).toString()
   const nextPage = (currentPage + 1).toString()
 
-  // TODO: keywords
   return (
     <Layout>
-      <SEO title="Home" keywords={['gatsby', 'javascript', 'react', 'web development', 'blog', 'graphql']} />
+      <SEO title="Home" />
       <div className="index-main">
         <div className="post-list-main">
           {posts.map(post => {
@@ -26,7 +33,7 @@ const PostList = props => {
             return (
               <div key={post.node.id} className="container mt-5">
                 <Link to={post.node.fields.slug} className="text-dark">
-                  <h2 className="title">{post.node.frontmatter.title}</h2>
+                  <h2>{post.node.frontmatter.title}</h2>
                 </Link>
                 <small className="d-block text-info">
                   <i>Erstellt am {post.node.frontmatter.date}</i> | Lesedauer: {post.node.timeToRead} Minute(n)

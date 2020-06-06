@@ -1,15 +1,6 @@
 /**
- * If you only want to use line numbering
+ * line numbering
  */
-.gatsby-highlight {
-  background-color: #fdf6e3;
-  border-radius: 0.3em;
-  padding: 0;
-  margin: .5em 0;
-  overflow-x: auto;
-  -ms-overflow-x: auto;
-}
-
 .gatsby-highlight pre[class*="language-"].line-numbers {
   padding: 0;
   padding-left: 2.8em;
@@ -38,11 +29,19 @@
 }
 
 /* media queries for mobile view */
+.language-text {
+  margin: .5em 0;
+}
+
 .gatsby-highlight  {
+  background-color: #fdf6e3;
+  border-radius: 0.3em;
   box-shadow: 1px 1px 3px;
   padding: 0 1em;
-  margin: 0;
+  margin: .5em 0;
   max-width: 1400px;
+  overflow-x: auto;
+  -ms-overflow-x: auto;
 }
 
 @media print {

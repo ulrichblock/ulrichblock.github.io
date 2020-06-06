@@ -1,17 +1,9 @@
 import './tags.scss'
 import React, { CSSProperties } from 'react'
+import { ILabels } from '../../types'
 import { Link } from 'gatsby'
 
-export interface ITag {
-  tag: string
-  tech: string
-  name: string
-  size: number
-  color: string
-  viewBox: string
-}
-
-export const TechTag = ({ tag, tech, name, size, color, viewBox }: ITag) => {
+export const TechTag = ({ tag, tech, name, size, color, viewBox }: ILabels): JSX.Element => {
   const buttonStyle: CSSProperties = {}
 
   let svg

@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 
-export const Left = () => {
+export const Left = (): JSX.Element => {
   return (
     <div className="head-left ml-4">
       <div className="head-links">

@@ -19,7 +19,13 @@ interface IState {
   results: IResult[]
 }
 
-export class Search extends Component<IProps, {}> {
+interface IEvent {
+  target: {
+    value: string
+  }
+}
+
+export class Search extends Component<IProps, unknown> {
   state: IState
   index: Index<any>
 
@@ -33,7 +39,7 @@ export class Search extends Component<IProps, {}> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <div>
         <input type="search" placeholder="Search" aria-label="Search" value={this.state.query} onChange={this.search} />
@@ -41,7 +47,7 @@ export class Search extends Component<IProps, {}> {
           {this.state.results.map(page => (
             <div key={page.id} className="container mt-5">
               <Link to={'/' + page.path} className="text-dark">
-                <h2 className="title">{page.title}</h2>
+                <h2>{page.title}</h2>
               </Link>
               <small className="d-block text-info">
                 <i>Erstellt am {page.date}</i>
@@ -53,17 +59,16 @@ export class Search extends Component<IProps, {}> {
     )
   }
 
-  search = (evt): void => {
+  search = (evt: IEvent): void => {
     const query = evt.target.value
     this.setState({
       query,
       // Query the index with search string to get an [] of IDs
       results: this.index
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
         // @ts-ignore TODO Remove when typings are fixed at the plugin
         .search(query, { expand: true }) // Accept partial matches
         // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref))
+        .map(({ ref }): JSX.Element => this.index.documentStore.getDoc(ref) as JSX.Element)
     })
   }
 }

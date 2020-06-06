@@ -1,47 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../pages/index.scss'
-import { Link, graphql } from 'gatsby'
-import { ITag } from '../components/tags/TechTag'
+import { Link, PageProps, graphql } from 'gatsby'
+import { IData } from '../types'
 import { Layout } from '../components/layout'
 import React from 'react'
 import { SEO } from '../components/seo'
 import { Sidebar } from '../components/sidebar/Sidebar'
 import { getTechTags } from '../components/tags/TechTags'
 
-interface IEdge {
-  node: {
-    id: string
-    excerpt: string
-    fields: {
-      slug: string
-    }
-    frontmatter: {
-      date: string
-      tags: string[]
-      title: string
-    }
-    timeToRead: number
-  }
+interface IPageContext {
+  tag: string
 }
 
-interface IProps {
-  pageContext: {
-    tag: string
-  }
-  data: {
-    allMarkdownRemark: {
-      edges: IEdge[]
-      totalCount: number
-    }
-    site: {
-      siteMetadata: {
-        labels: ITag[]
-      }
-    }
-  }
-}
+type TagProps = PageProps<IData, IPageContext>
 
-const Tag = ({ pageContext, data }: IProps) => {
+const Tag = ({ pageContext, data }: TagProps): JSX.Element => {
   const posts = data.allMarkdownRemark.edges
   const { tag } = pageContext
   const { totalCount } = data.allMarkdownRemark
@@ -53,13 +26,13 @@ const Tag = ({ pageContext, data }: IProps) => {
       <div className="index-main">
         <div className="post-list-main">
           <i>
-            <h2 className="heading">{tagHeader}</h2>
+            <h2>{tagHeader}</h2>
           </i>
           {posts.map(post => {
             return (
               <div key={post.node.id} className="container mt-5">
                 <Link to={post.node.fields.slug} className="text-dark">
-                  <h2 className="heading">{post.node.frontmatter.title}</h2>
+                  <h2>{post.node.frontmatter.title}</h2>
                 </Link>
                 <small className="d-block text-info">
                   Erstellt am {post.node.frontmatter.date} | Lesedauer: {post.node.timeToRead} Minute(n)

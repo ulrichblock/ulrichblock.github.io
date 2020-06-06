@@ -7,7 +7,7 @@ interface IProps {
   contacts: IContacts
 }
 
-export const SocialLinks = ({ contacts }: IProps) => {
+export const SocialLinks = ({ contacts }: IProps): JSX.Element => {
   return (
     <div className="side-social-links float-left mt-3 mb-3">
       <a

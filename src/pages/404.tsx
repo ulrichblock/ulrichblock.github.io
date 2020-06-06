@@ -2,7 +2,7 @@ import { Layout } from '../components/layout'
 import React from 'react'
 import { SEO } from '../components/seo'
 
-const NotFoundPage = () => (
+const NotFoundPage = (): JSX.Element => (
   <Layout>
     <SEO title="404: Not found" />
     <h1>Ups, die Seite konnte nicht gefunden werden.</h1>

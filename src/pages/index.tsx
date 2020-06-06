@@ -1,13 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.scss'
-import { Link, graphql } from 'gatsby'
+import { Link, PageProps, graphql } from 'gatsby'
+import { IData } from '../types'
 import { Layout } from '../components/layout'
 import React from 'react'
 import { SEO } from '../components/seo'
 import { Sidebar } from '../components/sidebar/Sidebar'
 import { getTechTags } from '../components/tags/TechTags'
 
-const IndexPage = ({ data }) => {
+type IndexProps = PageProps<IData, unknown>
+
+const IndexPage = ({ data }: IndexProps): JSX.Element => {
   const posts = data.allMarkdownRemark.edges
   const currentPage = 1
   const postsPerPage = 10 // see limit in graphql query below
@@ -16,7 +19,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" keywords={['gatsby', 'javascript', 'react', 'web development', 'blog', 'graphql']} />
+      <SEO title="Home" />
       <div className="index-main">
         <div className="post-list-main">
           {posts.map(post => {
@@ -24,7 +27,7 @@ const IndexPage = ({ data }) => {
             return (
               <div key={post.node.id} className="container mt-5">
                 <Link to={post.node.fields.slug} className="text-dark">
-                  <h2 className="title">{post.node.frontmatter.title}</h2>
+                  <h2>{post.node.frontmatter.title}</h2>
                 </Link>
                 <small className="d-block text-info">
                   <i>Erstellt am {post.node.frontmatter.date}</i> | Lesedauer: {post.node.timeToRead} Minute(n)

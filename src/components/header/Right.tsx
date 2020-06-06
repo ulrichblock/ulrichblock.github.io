@@ -7,7 +7,7 @@ interface IProps {
   contacts: IContacts
 }
 
-export const Right = ({ contacts }: IProps) => {
+export const Right = ({ contacts }: IProps): JSX.Element => {
   return (
     <div className="head-right">
       <SocialLinks contacts={contacts} />
