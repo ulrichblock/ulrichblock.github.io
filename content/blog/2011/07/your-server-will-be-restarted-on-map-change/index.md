@@ -1,6 +1,6 @@
 ---
 title: "Your server will be restarted on map change"
-tags: ["Counter-Strike: Source", "Day of Defeat: Source", "Half-Life 2", "Left 4 Dead", "game-server"]
+tags: ["steam", "Counter-Strike: Source", "Day of Defeat: Source", "Half-Life 2", "Left 4 Dead", "game-server"]
 published: true
 date: "2011-07-17"
 ---

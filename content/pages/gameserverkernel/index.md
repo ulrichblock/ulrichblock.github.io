@@ -1,6 +1,6 @@
 ---
 title: "Gameserver Kernel"
-tags: []
+tags: ["game-server"]
 published: true
 date: "2010-06-28"
 ---

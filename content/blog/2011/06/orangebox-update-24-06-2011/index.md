@@ -1,6 +1,6 @@
 ---
 title: "Orangebox Update 24.06.2011"
-tags: ["game-server", "Orangebox", "SourceMod"]
+tags: ["steam", "game-server", "Orangebox", "SourceMod"]
 published: true
 date: "2011-06-24"
 ---

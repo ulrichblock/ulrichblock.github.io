@@ -1,6 +1,6 @@
 ---
 title: "Symlinks und CSS Update"
-tags: ["Counter-Strike Source", "Orangebox"]
+tags: ["steam", "Counter-Strike Source", "Orangebox"]
 published: true
 date: "2011-10-14"
 ---

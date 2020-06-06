@@ -1,6 +1,6 @@
 ---
 title: "Ständige Timeouts bei HL1 und HL2 Spielen"
-tags: ["game-server", "Counter-Strike", "Counter-Strike Source"]
+tags: ["steam", "game-server", "Counter-Strike", "Counter-Strike Source"]
 published: true
 date: "2011-03-15"
 ---

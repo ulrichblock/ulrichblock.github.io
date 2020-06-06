@@ -1,6 +1,6 @@
 ---
 title: "Fastdownload Programm"
-tags: ["game-server", "Fast Download"]
+tags: ["steam", "game-server", "Fast Download"]
 published: true
 date: "2011-01-11"
 ---

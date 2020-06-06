@@ -1,6 +1,6 @@
 ---
 title: "SourceTV Demo Uploader"
-tags: ["game-server", "SourceTV", "bash"]
+tags: ["steam", "game-server", "SourceTV", "bash"]
 published: true
 date: "2011-12-31"
 ---

@@ -1,11 +1,11 @@
 ---
 title: "Über den Umgang von Firmen mit Sicherheitslücken"
-tags: []
+tags: ["security", "ESL"]
 published: true
 date: "2011-09-22"
 ---
 
-Nachdem ich wieder mal eine potentielle Schwäche mancher Hostinglösungen aufgezeigt habe, habe ich verschiedene Reaktionen erhalten. Zu den Lücken sei noch gesagt, dass alle bisher beschriebenen altbekannt sind und schon lange vor meinen Artikel ausgenutzt wurden.
+Nachdem ich wieder mal eine potenzielle Schwäche mancher Hostinglösungen aufgezeigt habe, habe ich verschiedene Reaktionen erhalten. Zu den Lücken sei noch gesagt, dass alle bisher beschriebenen altbekannt sind und schon lange vor meinen Artikel ausgenutzt wurden.
 
 Goas von g-portal hat mich zum Beispiel eingeladen, mal zu testen, ob ich durch deren Schutz komme. Was mir mit meinen derzeitigen Möglichkeiten nicht gelungen ist.  
 Eine solche Lösung ist bei großen Firmen eigentlich Gang und Gebe. Die wirklich großen Unternehmen wie Facebook und Microsoft haben sogar Belohnungen für diejenigen ausgelobt, die Fehler und Schwachstellen der Angebotenen Software melden.
@@ -16,7 +16,7 @@ Andere Mails gingen leider in eine ganz andere Richtung. Relativ am Anfang heiß
 
 Ich habe diese Aussage, als haltlose Drohung aufgefasst und mit einer kleinen Ausführung zur Pressefreiheit geantwortet. Ich kann ja verstehen, dass man keine negative Presse möchte. Hätte man ohne Drohung freundlich gefragt, hätte ich ebenso freundlich reagiert.
 
-Im weiteren Verlauf wurde erst behauptet man sei sicher und erfülle alle Voraussetzungen. Dann hieß es die ESL sei an allem Schuld, weil sie ihnen nicht nachtragen, wie man das eigene System einzurichten habe. Man konnte sich also nicht entscheiden, ob man denn sicher sei, oder ob für alle Lücken im eigenen System alleinig die anderen schuld sind.
+Im weiteren Verlauf wurde erst behauptet, man sei sicher und erfülle alle Voraussetzungen. Dann hieß es, die ESL sei an alledem Schuld, weil sie ihnen nicht nachtragen, wie man das eigene System einzurichten habe. Man konnte sich also nicht entscheiden, ob man denn sicher sei, oder ob für alle Lücken im eigenen System alleinig die anderen schuld sind.
 
 Die zweite Art von Reaktion kann man also in das Schema drohen und dann aus den Augen aus dem Sinn beschreiben. Man kann für die Kunden solcher Unternehmen nur hoffen, dass sie ebenso viel Energie mit Fehlerbehebung aufwenden, wie beim Versuch, Zensur auszuüben.
 

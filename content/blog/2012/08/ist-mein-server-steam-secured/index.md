@@ -1,6 +1,6 @@
 ---
 title: "Ist mein Server Steam Secured?"
-tags: ["php", "game-server"]
+tags: ["php", "steam", "game-server"]
 published: true
 date: "2012-08-09"
 ---

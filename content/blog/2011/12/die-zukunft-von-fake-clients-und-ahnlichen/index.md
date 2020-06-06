@@ -1,6 +1,6 @@
 ---
 title: "Die Zukunft von Fake Clients und ähnlichen"
-tags: ["game-server"]
+tags: ["steam", "game-server"]
 published: true
 date: "2011-12-20"
 ---

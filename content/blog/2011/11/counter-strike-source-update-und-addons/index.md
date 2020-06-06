@@ -1,6 +1,6 @@
 ---
 title: "Counter-Strike: Source Update und Addons"
-tags: ["Counter-Strike: Source", "game-server", "zBlock"]
+tags: ["steam", "Counter-Strike: Source", "game-server", "zBlock"]
 published: true
 date: "2011-11-09"
 ---

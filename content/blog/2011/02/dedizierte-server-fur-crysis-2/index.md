@@ -5,7 +5,7 @@ published: true
 date: "2011-02-15"
 ---
 
-Dass eine Beta von Crysis 2 geleaked wurde konnte man mittlerweile auf verschiedenen Portalen nachlesen.
+Dass eine Beta von Crysis 2 geleaked wurde, konnte man mittlerweile auf verschiedenen Portalen nachlesen.
 
 Weniger Aufregung und Aufsehen hat gefunden, dass EA in seinem [Blog](http://www.ea.com/crysis-2/blog/dedicated-servers) angekündigt hat, dass es dedizierte Server für Crysis 2 geben wird.  
 Im Gegensatz zu Black Ops, werden die Serverrechte nicht exklusiv an einen Hoster verkauft.  

@@ -1,6 +1,6 @@
 ---
 title: "Orangebox Update angekündigt, das Probleme bereiten wird"
-tags: ["game-server", "Orangebox", "Counter-Strike: Source"]
+tags: ["steam", "game-server", "Orangebox", "Counter-Strike: Source"]
 published: true
 date: "2012-10-24"
 ---

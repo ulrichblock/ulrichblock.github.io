@@ -1,6 +1,6 @@
 ---
 title: "FPS Meter und seine Nachahmer"
-tags: ["game-server"]
+tags: ["steam", "game-server"]
 published: true
 date: "2011-02-03"
 ---

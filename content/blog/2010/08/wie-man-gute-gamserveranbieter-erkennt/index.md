@@ -1,5 +1,5 @@
 ---
-title: "Wie man gute Gamserveranbieter erkennt"
+title: "Wie man gute Gamserver Anbieter erkennt"
 tags: ["game-server"]
 published: true
 date: "2010-08-09"

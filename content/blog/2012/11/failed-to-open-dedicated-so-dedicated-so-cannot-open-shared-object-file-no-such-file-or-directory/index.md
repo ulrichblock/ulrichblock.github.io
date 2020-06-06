@@ -1,6 +1,6 @@
 ---
 title: "Failed to open dedicated.so (dedicated.so: cannot open shared object file: No such file or directory)"
-tags: ["game-server"]
+tags: ["steam", "game-server"]
 published: true
 date: "2012-11-06"
 ---

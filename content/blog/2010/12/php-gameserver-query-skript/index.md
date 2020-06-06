@@ -1,6 +1,6 @@
 ---
 title: "PHP Gameserver Query Skript"
-tags: ["php", "game-server"]
+tags: ["steam", "php", "game-server"]
 published: true
 date: "2010-12-15"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Wieder einmal Updates für den Image Manager"
-tags: ["game-server", "Image Manager"]
+tags: ["steam", "game-server", "Image Manager"]
 published: true
 date: "2011-01-11"
 ---

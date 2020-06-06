@@ -1,6 +1,6 @@
 ---
 title: "Protected Modus für die ESL"
-tags: ["security", "game-server"]
+tags: ["security", "game-server", "ESL"]
 published: true
 date: "2011-09-04"
 ---

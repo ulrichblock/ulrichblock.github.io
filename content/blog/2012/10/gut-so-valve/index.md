@@ -1,6 +1,6 @@
 ---
 title: "Gut so Valve"
-tags: ["game-server"]
+tags: ["steam", "game-server"]
 published: true
 date: "2012-10-26"
 ---

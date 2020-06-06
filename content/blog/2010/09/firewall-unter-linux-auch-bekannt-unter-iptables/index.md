@@ -1,6 +1,6 @@
 ---
 title: "Firewall unter Linux auch bekannt unter IPtables"
-tags: ["game-server"]
+tags: ["steam", "game-server", "security"]
 published: true
 date: "2010-09-25"
 ---

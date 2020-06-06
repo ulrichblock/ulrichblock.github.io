@@ -1,6 +1,6 @@
 ---
 title: "zBlock Update"
-tags: ["zBlock", "Counter-Strike: Source"]
+tags: ["steam", "zBlock", "Counter-Strike: Source"]
 published: true
 date: "2011-10-16"
 ---

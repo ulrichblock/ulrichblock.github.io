@@ -1,5 +1,5 @@
 ---
-title: "Neuer Gameserverkernel mit der Version 3.0"
+title: "Neuer Gameserver Kernel mit der Version 3.0"
 tags: ["game-server", "Kernel"]
 published: true
 date: "2011-08-01"

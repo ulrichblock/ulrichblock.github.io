@@ -1,6 +1,6 @@
 ---
 title: "Half-Life 1 Dedicated Server Update"
-tags: ["Counter-Strike", "game-server"]
+tags: ["steam", "Counter-Strike", "game-server"]
 published: true
 date: "2011-09-28"
 ---

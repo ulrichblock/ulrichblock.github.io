@@ -1,6 +1,6 @@
 ---
 title: "TF2 und DODs Serverabstürze nach Update"
-tags: ["game-server", "Team Fortress 2", "Day of Defeat: Source", "Orangebox"]
+tags: ["steam", "game-server", "Team Fortress 2", "Day of Defeat: Source", "Orangebox"]
 published: true
 date: "2012-08-17"
 ---

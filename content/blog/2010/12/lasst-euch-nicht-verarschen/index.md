@@ -1,6 +1,6 @@
 ---
 title: "Gamerserverkernel, 15000, 10000, 5000 FPS, oder gleich noch mehr?"
-tags: ["game-server", "Kernel"]
+tags: ["steam", "game-server", "Kernel"]
 published: true
 date: "2010-12-11"
 ---

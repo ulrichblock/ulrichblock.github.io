@@ -1,6 +1,6 @@
 ---
 title: "Gameserver Tools"
-tags: []
+tags: ["game-server"]
 published: true
 date: "2013-02-20"
 ---

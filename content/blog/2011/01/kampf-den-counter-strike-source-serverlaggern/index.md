@@ -1,6 +1,6 @@
 ---
-title: "Kampf den (Counter-Strike Source) Serverlaggern."
-tags: ["Counter-Strike Source", "game-server"]
+title: "Kampf den (Counter-Strike Source) Server Laggern"
+tags: ["steam", "Counter-Strike Source", "game-server", "security"]
 published: true
 date: "2011-01-26"
 ---
@@ -37,7 +37,7 @@ Diese Methoden setzten natürlich voraus, dass man Rootzugang zu dem Hostystem h
 Mietet man einen Server an, muss der Hoster diese Maßnahme treffen. Leider gibt es immer wieder Hoster, die so etwas nicht machen wollen, oder wohl auch nicht können und dann Vorwände vorschieben. Es läge zwar in ihrem Interesse, diesen Typ von Angriff zu blocken, da er ja zusätzliche CPU Leistung frisst und man einen unzufriedenen Kunden hat, aber wenn man keine Ahnung von der Materie hat, dann kann man ja auch nichts unternehmen. An dieser Stelle sollte man sich dann überlegen, ob man sich den richtigen Anbieter rausgesucht hat und gegebenen Falls den Vertrag kündigen.
 
 Unternimmt der vermietende Anbieter nichts auf der IPtabel Ebene, kann man sich aber unter Umständen mit Servertools helfen:  
-Zum einen kann hier der [DoS Attack Fixer](http://sourceserver.info/wiki/daf) eingesetzt werden. Auf Warservern in ESL Spielen dürfen aber keine Servertools außer zBlock installiert sein. Deswegen ist dieses Servertool interessant für Puplic Server.
+Zum einen kann hier der [DoS Attack Fixer](http://sourceserver.info/wiki/daf) eingesetzt werden. Auf War Servern in ESL Spielen dürfen aber keine Servertools außer zBlock installiert sein. Deswegen ist dieses Servertool interessant für Puplic Server.
 
 Ich meine, dass [zBlock](http://zblock.mgamez.eu/) ebenfalls dazu in der Lage ist, solche Attacken abzuwehren. Dieses Servertool sollte aber nur auf Warservern eingerichtet werden und kann deswegen von Puplic Server Betreibern nicht eingesetzt werden.
 

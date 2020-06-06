@@ -1,6 +1,6 @@
 ---
 title: "Neues Tool: Steam + VAC Secured?"
-tags: ["game-server"]
+tags: ["steam", "game-server"]
 published: true
 date: "2012-08-11"
 ---

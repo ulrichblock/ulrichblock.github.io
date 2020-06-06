@@ -1,11 +1,11 @@
 ---
 title: "Schon einmal daran gedacht, &#8230;"
-tags: ["game-server", "security"]
+tags: ["steam", "game-server", "security"]
 published: true
 date: "2011-10-01"
 ---
 
-dass man mit Gamserverplugins mehr anstellen kann, als nur Adminverwaltung und Spielmodifikationen?
+dass man mit Gamserver Plugins mehr anstellen kann, als nur Admin Verwaltung und Spielmodifikationen?
 
 In letzter Zeit habe ich viel darüber geschrieben, welche Maßnahmen man ergreifen sollte, um den Zugriff aus Gameserver Installationen abzusichern. Je nach Hostinglösung wird bereits einiges im Vorfeld verhindert und oder die Folgen von erfolgreich durchgeführten kleineren Exploits beseitigt.
 

@@ -1,6 +1,6 @@
 ---
 title: "threadtools.cpp (2624) : Assertion Failed: Tried to create a thread that has already been created!"
-tags: ["Counter-Strike"]
+tags: ["steam", "Counter-Strike"]
 published: true
 date: "2011-10-31"
 ---

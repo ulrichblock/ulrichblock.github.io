@@ -1,6 +1,6 @@
 ---
 title: "CSGO Server Timeouts bei HLSW"
-tags: ["game-server", "csgo"]
+tags: ["steam", "game-server", "csgo"]
 published: true
 date: "2014-03-28"
 ---

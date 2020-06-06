@@ -1,6 +1,6 @@
 ---
 title: "Counter Strike: Source Update veröffentlicht"
-tags: ["game-server", "Counter Strike: Source"]
+tags: ["steam", "game-server", "Counter Strike: Source"]
 published: true
 date: "2012-05-22"
 ---
