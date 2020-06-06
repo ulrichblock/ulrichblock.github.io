@@ -19,7 +19,7 @@ Ein einfacher Lasttest kann mit ApacheBench gefahren werden. Dieser ist jedoch n
 apt-get install apache2-utils
 ```
 
-Der Aufruf zum Testen der Landing Page ist **ab -k -n 1000 -c 50 http://192.168.178.47/**. Es werden 1000 Aufrufe mit 50 gleichzeitigen Verbindungen gemacht.
+Der Aufruf zum Testen der Landing Page ist `ab -k -n 1000 -c 50 http://192.168.178.47/`. Es werden 1000 Aufrufe mit 50 gleichzeitigen Verbindungen gemacht.
 
 Bei PHP-FPM kommt man auf:
 
@@ -148,7 +148,7 @@ Das Ergebnis mit JMeter spiegelt im Großen und Ganzen das ApacheBench Ergebnis 
 
 ### Performance Tests Elasticsearch
 
-Mittels ApacheBench hatte ich vorab einen Test ohne Elasticsearch gegen den HHVM Vhost gefahren. Beide Ergebnisse sind aus dem zweiten Durchlauf. Die Parameter waren **ab -k -n 500 -c 10 http://192.168.178.48/?s=demo**. Man kann sehen, dass Elasticsearch vor allem eine funktionale Erweiterung ist. Erst bei großen Setups, bei denen Suchen, den SQL Server an die Grenzen bringen, kann man durch Elasticsearch an Geschwindigkeit gewinnen.
+Mittels ApacheBench hatte ich vorab einen Test ohne Elasticsearch gegen den HHVM Vhost gefahren. Beide Ergebnisse sind aus dem zweiten Durchlauf. Die Parameter waren `ab -k -n 500 -c 10 http://192.168.178.48/?s=demo`. Man kann sehen, dass Elasticsearch vor allem eine funktionale Erweiterung ist. Erst bei großen Setups, bei denen Suchen, den SQL Server an die Grenzen bringen, kann man durch Elasticsearch an Geschwindigkeit gewinnen.
 
 Mit der normalen WordPress Suche waren es:
 
@@ -224,7 +224,7 @@ Nachdem ich alle Dienste neu gestartet hatte
 service nginx restart && service memcached restart && service hhvm restart
 ```
 
-wird abermals ein ApacheBench mit den Parametern **ab -k -n 1000 -c 50 http://192.168.178.48/** gestartet  
+wird abermals ein ApacheBench mit den Parametern `ab -k -n 1000 -c 50 http://192.168.178.48/` gestartet  
 ```
 Time taken for tests:   1.369 seconds
 Complete requests:      1000
