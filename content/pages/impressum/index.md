@@ -17,7 +17,7 @@ Morgenstra&szlig;e, 49
 
 Telefon: +49 0151 11405720;
 
-E-Mail: ulblock[hier ein @ einfügen]gmx.de  (Hinweis: [hier ein @ einfügen] ist durch @ zu ersetzen)
+E-Mail: homepage[hier ein @ einfügen]ulrich-block.de  (Hinweis: [hier ein @ einfügen] ist durch @ zu ersetzen)
 
 ## Verantwortlich f&uuml;r den Inhalt nach &sect; 55 Abs. 2 RStV
 

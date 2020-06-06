@@ -6,7 +6,7 @@
 #                                                                          #
 #  Author: Ulrich Block                                                    #
 #                                                                          #
-#  Kontakt: ulblock@gmx.de                                                 #
+#  Kontakt: ich@ulrich-block.de                                            #
 #  www.ulrich-block.de                                                     #
 #                                                                          #
 #  This program is free software: you can redistribute it and/or modify    #
@@ -43,8 +43,8 @@ PORT="Deinen IP hier eintragen"
 
 # Die Unterschiedlichen Startvarianten. Je nach Spiel bitte anpassen.
 # Eine Raute (#) am Anfang der Zeile, bedeutet, dass sie auskommentiert ist.
-# In diesem Fall wird sie vom Server nicht beachtet und ist nur für den menschlichen Leser bestimmt.
-# Standartmäßig ist Left 4 Dead aktiviert.
+# In diesem Fall wird sie vom Server nicht beachtet und ist nur fï¿½r den menschlichen Leser bestimmt.
+# Standartmï¿½ï¿½ig ist Left 4 Dead aktiviert.
 
 # Bei Left Dead 1:
 DIR="/home/left4dead/l4d1/l4d"
@@ -100,7 +100,7 @@ fi
 
 function start_server {
  if [[ `screen -ls | grep $SCREENNAME` ]]; then
-  echo "Der Server läuft bereits unter dem Screentab $SCREENNAME"
+  echo "Der Server lï¿½uft bereits unter dem Screentab $SCREENNAME"
  else
   echo "Starte $SCREENNAME"
   if [ -d $DIR ]; then
