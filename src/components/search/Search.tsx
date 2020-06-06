@@ -46,7 +46,7 @@ export class Search extends Component<IProps, unknown> {
         <div>
           {this.state.results.map(page => (
             <div key={page.id} className="container mt-5">
-              <Link to={'/' + page.path} className="text-dark">
+              <Link to={page.path} className="text-dark">
                 <h2>{page.title}</h2>
               </Link>
               <small className="d-block text-info">

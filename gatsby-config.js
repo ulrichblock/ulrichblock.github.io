@@ -3,6 +3,7 @@ const labels = require('./labels')
 const URL = 'https://www.ulrich-block.de/'
 
 module.exports = {
+  pathPrefix: '/',
   siteMetadata: {
     copyright: `© ${new Date().getFullYear()}`,
     url: URL,
