@@ -50,40 +50,9 @@
   margin-bottom: auto;
 }
 
-.bottom-bar {
-  width: 100%;
-  background: black;
-  display: none;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.mobile-pages-main {
-  width: 100%;
-  background: #fcfbf7;
-  display: none;
-}
-
-.mobile-bio-main {
-  background: #fcfbf7;
-  display: none;
-}
-
-
 @media only screen and (max-width: 850px) {
-  .bottom-bar {
-    display: flex;
-  }
   .social-links {
     display: none;
-  }
-  .mobile-pages-main {
-    display: block;
-  }
-  .mobile-bio-main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
   }
 }
 
