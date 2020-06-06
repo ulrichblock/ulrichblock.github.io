@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "ulrich-block",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Sources of https://www-ulrich-block.de",
+  "version": "1.0.0",
+  "author": "Ulrich Block <ulblock@gmx.de>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ulrichblock/www.ulrich-block.de/issues"
   },
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
@@ -54,15 +54,13 @@
     "prettier": "^2.0.5",
     "typescript": "^3.9.2"
   },
-  "homepage": "https://github.com/gperl27/Gatsby-Starter-Blog-Typescript#readme",
+  "homepage": "https://www.ulrich-block.de/",
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gperl27/Gatsby-Starter-Blog-Typescript.git"
+    "url": "git+https://github.com/ulrichblock/www.ulrich-block.de.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -72,7 +70,6 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "tsc": "tsc --noEmit",
-    "lint": "eslint *.js  src/ --ext .js,.jsx,.ts,.tsx --fix",
-    "gql-codegen": "graphql-codegen --config codegen.yml"
+    "lint": "eslint *.js  src/ --ext .js,.jsx,.ts,.tsx --fix"
   }
 }
