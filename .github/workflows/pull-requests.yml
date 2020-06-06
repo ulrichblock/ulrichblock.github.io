@@ -6,6 +6,28 @@ on:
       - master
 
 jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: install node v12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: yarn install
+      run: yarn install
+    - name: eslint plugins
+      run: yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-react --dev
+    - name: eslint
+      uses: icrawl/action-eslint@v1
+      with:
+        custom-glob: src # only if a different glob is needed, default: src
+  yaml-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: yaml-lint
+      uses: ibiqlik/action-yamllint@v1
   test-build:
     runs-on: ubuntu-latest
     steps:
@@ -16,14 +38,3 @@ jobs:
           deploy-branch: gh-pages
           gatsby-args: --prefix-paths
           skip-publish: true
-  eslint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: hallee/eslint-action@1.0.3
-        # GITHUB_TOKEN in forked repositories is read-only
-        # https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
-        if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }} 
-        with:
-          repo-token: ${{secrets.GATSBY_ACCES_TOKEN}}
-          source-root: optional-sub-dir
