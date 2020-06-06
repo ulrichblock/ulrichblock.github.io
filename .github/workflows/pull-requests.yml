@@ -28,7 +28,7 @@ jobs:
     - name: yarn install
       run: yarn install
     - name: eslint plugins
-      run: yarn install -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-react
+      run: yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-react --dev
     - name: eslint
       uses: icrawl/action-eslint@v1
       with:
