@@ -1,4 +1,4 @@
-name: Gatsby PR
+name: Pull Request Validation
 
 on:
   pull_request:
