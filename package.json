@@ -50,6 +50,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.10",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "typescript": "^3.9.2"

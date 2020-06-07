@@ -235,6 +235,13 @@ module.exports = {
         develop: false // Enable while using 'gatsby develop'
       }
     },
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+      options: {
+        disable: true
+        // devMode: true
+      }
+    },
     'gatsby-plugin-offline'
   ]
 }
