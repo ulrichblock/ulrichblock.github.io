@@ -37,6 +37,8 @@ Mit weniger Aufwand wird der Blog nun verfügbarer den je sein.
 
 #### Performance
 
+##### Status Quo
+
 Mein bisheriges [Setup](/wordpress-unleashed-konzept/) lieferte bereits eine hervorragende Performance. Googles [Speed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=de) hatte nur wenig zu bemängeln.
 Dies ist vor allem einer aggressiven Caching und Optimizing Strategie geschuldet. Betreibt man ein CMS ohne Caching drücken zeitaufwändige Datenbankabfragen massiv auf die Performance.
 Wordpress ohne einen Optimizer bedeutet extrem viele CSS und JS Dateien die leider oft unkomprimiert sequentiell übertragen werden.
@@ -45,6 +47,11 @@ Für die kritischere Mobile Ansicht waren dennoch zwei Punkte angemerkt worden:
 
 - Wichtige Anforderungen vorab laden (0,93 s); Mit `<link rel=preload>` können Sie das Abrufen von Ressourcen priorisieren, die derzeit beim Seitenaufbau erst später angefordert werden. [Weitere Informationen](https://web.dev/uses-rel-preload/).
 - Ressourcen beseitigen, die das Rendering blockieren (0,18 s); Ressourcen blockieren den First Paint Ihrer Seite. Versuchen Sie, wichtiges JS und wichtige CSS inline anzugeben und alle nicht kritischen JS und Stile aufzuschieben. [Weitere Informationen](https://web.dev/render-blocking-resources/).
+
+##### Gatsby
+
+Bei Gatsby gab es sowohl in der Mobile, wie in der Page Ansicht 100/100 Punkten. Dennoch wurde angemerkt, dass nicht genutztes JavaScript entfernen zu entfernen sei.
+Die Anzeige erscheint seit dem vor wenigen Wochen vorgenommenen Upgrade von Lighthouse. In der Gatsby Community wird bereits [diskutiert](https://github.com/gatsbyjs/gatsby/issues/24586) und einen weiteren Blog Beitrag wert.
 
 #### Kosten
 
