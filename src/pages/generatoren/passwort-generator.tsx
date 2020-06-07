@@ -165,7 +165,6 @@ function generateSetPasswords(): void {
 }
 
 let timeout
-
 function onChange(): void {
   if (timeout) {
     clearTimeout(timeout)
@@ -179,109 +178,115 @@ function onClick(): boolean {
   generateSetPasswords()
   return false
 }
+
 const PasswortGenerator = (): JSX.Element => (
   <Layout>
     <SEO title="Passwort Generator" />
     <div className="index-main">
       <div className="post-page-main">
         <form>
-          <div className="form-group">
-            <label htmlFor="length">Passwortl&auml;nge</label>
-            <input
-              id="length"
-              type="number"
-              className="form-control"
-              min={8}
-              max={100}
-              defaultValue={16}
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="amount">Anzahl der zu generierenden Passw&ouml;rter</label>
-            <input
-              id="amount"
-              type="number"
-              className="form-control"
-              min={1}
-              max={10}
-              defaultValue={4}
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-row">
-            <div className="col">
-              <div className="form-check col-2">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="small"
-                  onChange={generateSetPasswords}
-                  defaultChecked={true}
-                />
-                <label className="form-check-label" htmlFor="small">
-                  Kleinbuchstaben
-                </label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="form-check col-2">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="large"
-                  onChange={generateSetPasswords}
-                  defaultChecked={true}
-                />
-                <label className="form-check-label" htmlFor="large">
-                  Gro&szlig;buchstaben
-                </label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="numeric"
-                  onChange={generateSetPasswords}
-                  defaultChecked={true}
-                />
-                <label className="form-check-label" htmlFor="numeric">
-                  Zahlen (1-9)
-                </label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="zero"
-                  onChange={generateSetPasswords}
-                  defaultChecked={true}
-                />
-                <label className="form-check-label" htmlFor="zero">
-                  Null (0)
-                </label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="sonder"
-                  onChange={generateSetPasswords}
-                  defaultChecked={true}
-                />
-                <label className="form-check-label" htmlFor="sonder">
-                  Sonderzeichen
-                </label>
-              </div>
+          <div className="form-group row">
+            <label htmlFor="length" className="col-sm-4 col-form-label col-form-label-sm">
+              Passwortl&auml;nge
+            </label>
+            <div className="col-sm-8">
+              <input
+                id="length"
+                type="number"
+                className="form-control form-control-sm"
+                min={8}
+                max={100}
+                defaultValue={16}
+                onChange={onChange}
+              />
             </div>
           </div>
-          <div className="form-group">
+          <div className="form-group row">
+            <label htmlFor="amount" className="col-sm-4 col-form-label col-form-label-sm">
+              Anzahl der zu generierenden Passw&ouml;rter
+            </label>
+            <div className="col-sm-8">
+              <input
+                id="amount"
+                type="number"
+                className="form-control form-control-sm"
+                min={1}
+                max={10}
+                defaultValue={4}
+                onChange={onChange}
+              />
+            </div>
+          </div>
+
+          <fieldset className="form-group">
+            <div className="row">
+              <legend className="col-form-label col-sm-4 pt-0 col-form-label-sm">Parameter</legend>
+              <div className="col-sm-8">
+                <div className="form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="small"
+                    onChange={generateSetPasswords}
+                    defaultChecked={true}
+                  />
+                  <label className="form-check-label form-control-sm" htmlFor="small">
+                    Kleinbuchstaben
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="large"
+                    onChange={generateSetPasswords}
+                    defaultChecked={true}
+                  />
+                  <label className="form-check-label form-control-sm" htmlFor="large">
+                    Gro&szlig;buchstaben
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="numeric"
+                    onChange={generateSetPasswords}
+                    defaultChecked={true}
+                  />
+                  <label className="form-check-label form-control-sm" htmlFor="numeric">
+                    Zahlen (1-9)
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="zero"
+                    onChange={generateSetPasswords}
+                    defaultChecked={true}
+                  />
+                  <label className="form-check-label form-control-sm" htmlFor="zero">
+                    Null (0)
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="sonder"
+                    onChange={generateSetPasswords}
+                    defaultChecked={true}
+                  />
+                  <label className="form-check-label form-control-sm" htmlFor="sonder">
+                    Sonderzeichen
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div className="form-group row">
             <textarea className="form-control" id="passwords" rows={10} />
           </div>
           <div className="form-row">
