@@ -1,8 +1,8 @@
 ---
 title: "Hello Gatsby, Goodbye Wordpress"
-tags: ["gatsby", "wordpress"]
-published: true
-date: "2020-05-24"
+tags: ["gatsby", "wordpress", "typescript", "github"]
+published: false
+date: "2020-06-07"
 ---
 
 ## TL;DR
@@ -193,7 +193,7 @@ Meine Wahl ist auf [gatsby-plugin-elasticlunr-search](https://www.gatsbyjs.org/p
 Die Suche arbeitet mit JavaScript ausschließlich auf der Seite.
 Dies ist mir wichtig, weil ich vermeiden will, dass Daten an Drittanbieter wie z.B. Algolia übertragen werden.
 
-Die Einbindung war nicht trivial und erforderte das Programmieren einer eigenen [Suche Seite](TODO URL).
+Die Einbindung war nicht trivial und erforderte das Programmieren einer eigenen [Komponente](https://github.com/ulrichblock/www.ulrich-block.de/src/components/search/Search.tsx) [Seite](https://github.com/ulrichblock/www.ulrich-block.de/src/pages/suche.tsx).
 
 #### Performance
 
@@ -213,10 +213,15 @@ Wie der Name schon sagt, entfernt es unnötiges CSS. Im Falle des Blogs sind das
 
 ```
 gatsby-plugin-purgecss:
- Previous CSS Size: 189.18 KB
- New CSS Size: 16.04 KB (-91.52%)
- Removed ~173.14 KB of CSS
+ Previous CSS Size: 191.76 KB
+ New CSS Size: 16.48 KB (-91.41%)
+ Removed ~175.28 KB of CSS
 ```
+
+##### Offline
+
+Das Plugin [gatsby-plugin-offline](https://www.gatsbyjs.org/packages/gatsby-plugin-offline/) wird in seiner minimal Konfiguration genutzt.
+Es fügt einen Service Worker hinzu, welcher einmal aufgerufene Seiten lokal vorhält. Dadurch wird die Webseite resilienter gegen schlechte Netzwerk Verbindungen.
 
 ## Content Migration
 
@@ -283,12 +288,73 @@ Die Liste:
 - Config Generator
 
 
-## Deployment
+## CI/CD
+
+### Einleitung
+
+Es ist mittlerweile etablierter Standard, Änderungen in einem Branch zu machen und diesen Branch dann als Change zu dem Haupt Branch einzureichen.
+Bei GitHub wird dies über [Pull Requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) gemacht.
+Sobald ein Pull Request aufgemacht wird, wird ein CI System getriggert. Dieses testet den Code auf verschiedene Aspekte.
+Wenn einer der Tests fehlschlägt, wird der Pull Request blockiert. Man kann ihn nicht mehr in den Main Branch mergen.
+In Projekten mit mehreren Teilnehmern wird hier der Code Review vorgenommen.
+
+Sobald die technischen Checks und das Review erfolgreich sind, wird der Branch des Pull Requests in den Main Branch gemerged.
+Hier wird das CI System dann abermals getriggert und der eigentliche Build vorgenommen.
+
+Bei vorangegangenen Projekten habe ich den Service [Travis CI](https://travis-ci.org/) mit dem Repository verbunden.
+Es ist für öffentliche Repositories kostenlos und hat bis jetzt alle meine Anforderungen erfüllt.
+Ein Beispiel war das schon länger abgegebenen OpenSource Projekt [easy-wi.com](https://easy-wi.com).
+Bei diesem wird die Webseite mit dem Statischen Site Generator [MkDocs](https://www.mkdocs.org/) gebaut und auf [GitHub Pages](https://github.com/easy-wi/page/blob/master/.travis.yml) deployed.
+
+Es war meine Neugier und der Wunsch etwas Neues auszuprobieren und kein technischer Grund auf das eher neueres Feature [GitHub Actions](https://github.com/features/actions) zu setzen.
+
+### GitHub Actions
+
+#### Pull Request Voter
+
+Der [Pull Requests Workflow](https://github.com/ulrichblock/www.ulrich-block.de/.github/workflows/pull-requests.yml) soll drei Dinge sicherstellen.
+
+Die Konfigurationen sind zum Teil im Dateiformat YAML verfasst. Fehler in diesen Dateien führen zwar fast immer zu fehlerhaften Builds.
+Je nach Build Tooling ist die Ursache aber schwer zu erfassen und zu beheben.
+Die Action [GitHub YAMLlint](https://github.com/ibiqlik/action-yamllint) instrumentalisiert das in Python geschriebene Tool [yamllint](https://yamllint.readthedocs.io).
+
+In die gleiche Richtung geht auch [ESLint](https://eslint.org/). Wie alles Linting hat es zwei Ziele. Eine einheitliche Formatierung und grobe Fehler vorab finden.
+Die Wahl fiel auf [action-eslint](https://github.com/iCrawl/action-eslint). Die Action installiert ein nacktes ESLint.
+Das Verhalten ist korrekt, führte in meinem Fall aber zu einem fehlerhaften Job, weil die zusätzliche Plugins fehlten, die es braucht, um Typescript und React umfangreich linten zu können.
+Eine zusätzliche Run Anweisung, die Plugins zu installieren löste das Problem.
+
+Während die ersten beiden Punkte nicht zwingend sind, ist der Dritte wichtig, um einer kaputten Seite vorzubeugen.
+Der Gatsby Test Build wird durch die Github Action [Gatsby Publish](https://github.com/enriikke/gatsby-gh-pages-action) gesteuert.
+Es werden dabei alle Befehle, wie beim späteren Build aufgerufen. Durch das Setzen von `skip-publish: true` wird lediglich auf den Publish bzw. Deploy verzichtet.
+
+#### Page Build und Deployment
+
+Der [Gatsby Publish Workflow](https://github.com/ulrichblock/www.ulrich-block.de/.github/workflows/gatsby-publish.yml) wird bei jeder Änderung am **master** Branch ausgeführt.
+Wie schon beim PR Voter, wird die Github Action [Gatsby Publish](https://github.com/enriikke/gatsby-gh-pages-action) verwendet.
+Sobald es den Befehl `gatsby build` erfolgreich ausgeführt hat, pushed es das Ergebnis, den Inhalt des **public** Ordners, auf den **gh-pages**
 
 ### GitHub Page Konfiguration
 
-#### Repo
+#### Repository
+
+Als Namen des Repositories habe ich **www.ulrich-block.de** genommen. Folgt man GitHub Vorschlag und nutzt **ulrichblock.github.io**
+
+Das Hosten von Github Pages ist nur dann kostenlos, wenn das zugehörige Repository öffentlich ist.
+Von einer Umgehungsstrategie, bei der ich den Quellcode in einem privaten Repository belasse und dann mittels CI/CD auf den `gh-pages` Branch eines öffentlichen pushe, habe ich abgesehen.
+Der erste Schritt war demnach unter `Settings > Options > Danger Zone > Make this repository public` das Repository öffentlich zu machen.
+
 #### CNAME
+
+Um eine eigene Domain ([Custom Domain](https://help.github.com/en/github/working-with-github-pages/about-custom-domains-and-github-pages)) verwenden zu können, bedarf es der Konfigurationsdatei **CNAME** im Root des gh-pages Branches.
+Wie alle Dateien, die von Gatsby in das Wurzelverzeichnis aka. Root kopiert werden sollen, platziert man die **CNAME** Datei im **static/** Order des **master** Branches.
+
+Der **CNAME** Inhalt ist die Domain `www.ulrich-block.de` und damit ein Einzeiler.
+
 #### Branches
 
-### GitHub Actions
+Zu diesem Zeitpunkt ist der Gatsby Publish Workflow bereits gelaufen. In der Folge existiert **gh-pages** Branch.
+GitHub erkennt diesen automatisch und hatte das GitHub Pages Feature aktiviert.
+
+#### DNS CNAME Records
+
+Als letzten Schritt bin ich in die DNS Einstellungen meines Domain Anbieters gegangen und habe den 
