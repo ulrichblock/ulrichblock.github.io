@@ -29,7 +29,7 @@ interface IData {
   }
 }
 
-export const SEO = ({ description, lang, meta = [], title }: IProps): JSX.Element => {
+export const SEO = ({ description, meta = [], title }: IProps): JSX.Element => {
   return (
     <StaticQuery
       query={graphql`
@@ -50,7 +50,7 @@ export const SEO = ({ description, lang, meta = [], title }: IProps): JSX.Elemen
         <>
           <Helmet
             htmlAttributes={{
-              lang
+              lang: 'de'
             }}
             title={title}
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
