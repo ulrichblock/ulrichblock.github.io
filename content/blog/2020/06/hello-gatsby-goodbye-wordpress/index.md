@@ -1,7 +1,7 @@
 ---
 title: "Hello Gatsby, Goodbye Wordpress"
 tags: ["gatsby", "wordpress", "typescript", "github"]
-published: false
+published: true
 date: "2020-06-07"
 ---
 
@@ -193,7 +193,7 @@ Meine Wahl ist auf [gatsby-plugin-elasticlunr-search](https://www.gatsbyjs.org/p
 Die Suche arbeitet mit JavaScript ausschließlich auf der Seite.
 Dies ist mir wichtig, weil ich vermeiden will, dass Daten an Drittanbieter wie z.B. Algolia übertragen werden.
 
-Die Einbindung war nicht trivial und erforderte das Programmieren einer eigenen [Komponente](https://github.com/ulrichblock/www.ulrich-block.de/src/components/search/Search.tsx) [Seite](https://github.com/ulrichblock/www.ulrich-block.de/src/pages/suche.tsx).
+Die Einbindung war nicht trivial und erforderte das Programmieren einer eigenen [Komponente](https://github.com/ulrichblock/ulrichblock.github.io/src/components/search/Search.tsx) [Seite](https://github.com/ulrichblock/ulrichblock.github.io/src/pages/suche.tsx).
 
 #### Performance
 
@@ -329,19 +329,30 @@ Es werden dabei alle Befehle, wie beim späteren Build aufgerufen. Durch das Set
 
 #### Page Build und Deployment
 
-Der [Gatsby Publish Workflow](https://github.com/ulrichblock/www.ulrich-block.de/.github/workflows/gatsby-publish.yml) wird bei jeder Änderung am **master** Branch ausgeführt.
+Der [Gatsby Publish Workflow](https://github.com/ulrichblock/www.ulrich-block.de/.github/workflows/gatsby-publish.yml) wird bei jeder Änderung am **dev** Branch ausgeführt.
 Wie schon beim PR Voter, wird die Github Action [Gatsby Publish](https://github.com/enriikke/gatsby-gh-pages-action) verwendet.
-Sobald es den Befehl `gatsby build` erfolgreich ausgeführt hat, pushed es das Ergebnis, den Inhalt des **public** Ordners, auf den **gh-pages**
+Sobald es den Befehl `gatsby build` erfolgreich ausgeführt hat, pushed es das Ergebnis, den Inhalt des **public** Ordners, auf den **master** Branch.
 
 ### GitHub Page Konfiguration
 
-#### Repository
+#### DNS CNAME Records
 
-Als Namen des Repositories habe ich **www.ulrich-block.de** genommen. Folgt man GitHub Vorschlag und nutzt **ulrichblock.github.io**
+In die DNS Einstellungen meines Domain Anbieters habe ich die bisherigen A Records entfernt. Statt dessen gibt es nun 
+
+#### Repository
 
 Das Hosten von Github Pages ist nur dann kostenlos, wenn das zugehörige Repository öffentlich ist.
 Von einer Umgehungsstrategie, bei der ich den Quellcode in einem privaten Repository belasse und dann mittels CI/CD auf den `gh-pages` Branch eines öffentlichen pushe, habe ich abgesehen.
 Der erste Schritt war demnach unter `Settings > Options > Danger Zone > Make this repository public` das Repository öffentlich zu machen.
+
+Als Namen des Repositories hatte ich zuerst **www.ulrich-block.de** genommen. Der Default Branch war **master**.
+Als ich in der Dokumentation von GitHub gefunden hatte, dass man statt dessen **ulrichblock.github.io** benutzen soll, habe ich das Repository umbenannt.
+Die Überraschung folgte schnell. Nutzt man die User **<user>.github.io** bzw. Org Domain **<organization>.github.io**, wird die GitHub Seite zwangsweise vom **master** Branch ausgeliefert.
+Als Folge dessen wurde nur die als HTML gerenderte README.md angezeigt, wenn man im Browser ulrich-block.de aufgerufen hat.
+
+Deswegen habe ich vom **master** Branch aus, dann den neuen Branch **dev** erstellt. Nach dem Erstellen habe ich ihn unter `Settings > Branches` als Default branch konfiguriert.
+Im Anschluss die Workflows dahingehend angepasst, dass **dev** die Sources enthält und an Stelle von **gh-pages** nach **master** deployed wird.
+Dann noch den jetzt überflüssingen **gh-pages** Branch gelöscht.
 
 #### CNAME
 
@@ -349,12 +360,3 @@ Um eine eigene Domain ([Custom Domain](https://help.github.com/en/github/working
 Wie alle Dateien, die von Gatsby in das Wurzelverzeichnis aka. Root kopiert werden sollen, platziert man die **CNAME** Datei im **static/** Order des **master** Branches.
 
 Der **CNAME** Inhalt ist die Domain `www.ulrich-block.de` und damit ein Einzeiler.
-
-#### Branches
-
-Zu diesem Zeitpunkt ist der Gatsby Publish Workflow bereits gelaufen. In der Folge existiert **gh-pages** Branch.
-GitHub erkennt diesen automatisch und hatte das GitHub Pages Feature aktiviert.
-
-#### DNS CNAME Records
-
-Als letzten Schritt bin ich in die DNS Einstellungen meines Domain Anbieters gegangen und habe den 
