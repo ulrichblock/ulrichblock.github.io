@@ -1,124 +1,168 @@
+import { IConfig, IInputNumber, IInputString, ISelectNumber, ISelectString, Inputs, Options } from './config-types'
+import { CLIENT_CSS } from './config-client-css'
+import { CLIENT_DODS } from './config-client-dods'
+import { CLIENT_HL2_BASE } from './config-client-hl2-base'
+import { CLIENT_TF2 } from './config-client-tf2'
+import { Link } from 'gatsby'
 import React from 'react'
-import clientCss from './config-client-css.json'
 
-interface IBaseInput {
-  name: string
-  description: string
+const configs = {
+  'css-client': CLIENT_CSS,
+  'dods-client': CLIENT_DODS,
+  'hl2base-client': CLIENT_HL2_BASE,
+  'tf2-client': CLIENT_TF2
 }
 
-interface ISelectOptionNumber {
-  key: number
-  value: string
+interface IInputs {
+  [key: string]: JSX.Element
 }
 
-interface ISelectOptionString {
-  key: string
-  value: string
-}
-
-interface ISelectNumber extends IBaseInput {
-  values: number[] | ISelectOptionNumber[]
-  default: number
-}
-
-interface ISelectString extends IBaseInput {
-  values: string[] | ISelectOptionString[]
-  default: string
-}
-
-type Options = number[] | string[] | ISelectOptionNumber[] | ISelectOptionString[]
-
-interface IInputNumber extends IBaseInput {
-  default: number
-  min: number
-  max: number
-  step: number
-}
-
-interface IInputString extends IBaseInput {
-  default: string
-  placeholder: string
-}
-
-type Inputs = ISelectNumber | ISelectString | IInputNumber | IInputString
-
-interface IConfig {
-  [key: string]: Array<Inputs>
-}
-
-interface IInputConfig {
-  [key: string]: IConfig
+interface IInputGroups {
+  [key: string]: {
+    header: string[]
+    inputs: IInputs
+  }
 }
 
 export class GenerateConfigs extends React.Component {
   private _downloadUrl: string | null = null
-  private _configs: IInputConfig = {
-    'css-client': clientCss as IConfig
-  }
+  private _groups: IInputGroups = {}
 
   public render(): JSX.Element {
     return (
       <form>
+        {this._configSelector()}
+        {this._configTexts()}
         {this._formElements()}
         {this._download()}
       </form>
     )
   }
 
-  private _download(): JSX.Element {
+  private _configSelector(): JSX.Element {
+    const options = [
+      { key: 'css-client', value: 'Counter-Strike: Source Client' },
+      { key: 'dods-client', value: 'Day of Defeat: Source Client' },
+      { key: 'tf2-client', value: 'Team Fortress 2 Client' }
+    ]
+
     return (
-      <div className="form-row">
-        <a id="download_link" download="ub.cfg" href="javascript:void(0)">
-          <button type="button" className="btn btn-primary" onClick={this.onClick}>
-            Erstellen
-          </button>
-        </a>
+      <div className="form-group">
+        <label htmlFor="configSelect" className="col-form-label col-form-label-sm">
+          Art der Config
+        </label>
+        <select
+          className="form-control form-control-sm"
+          id="configSelect"
+          aria-describedby={'configSelectHelp'}
+          defaultValue="css-client"
+          onChange={this.onConfigSelected}
+        >
+          {this._options(options)}
+        </select>
+        {this._helpText('configSelectHelp', 'Spiel und Typ der zu erstellenden Config Datei.')}
       </div>
     )
   }
 
-  private _formElements(): JSX.Element[] {
-    const elements: JSX.Element[] = []
+  private _configTexts(): JSX.Element[] {
+    const texts: JSX.Element[] = []
+    texts.push(
+      <div id="hl2baseClientText" className={'toggle-config game-hl2base type-client'}>
+        Die Voreinstellungen sind f&uuml;r maximale FPS ausgelegt. Die fertige Datei downloaden und in der autoexec.cfg
+        Folgendes eintragen: <b>exec ub.cfg</b>
+        Alternativ kannst du auch diese <Link to="./autoexec.cfg">autoexec.cfg</Link> downloaden.
+      </div>
+    )
 
-    for (const [key, entries] of Object.entries(this._configs)) {
-      const [game, runAt] = key.split(key)
-
-      elements.push(...this._inputGroups(game, runAt, entries))
-    }
-
-    return elements
+    return texts
   }
 
-  private _inputGroups(game: string, runAt: string, entries): JSX.Element[] {
+  onConfigSelected = (): undefined => {
+    const [game, type] = String(this._selectedValue('configSelect')).split('-')
+    const elements = document.getElementsByClassName('toggle-config')
+
+    for (let i = 0; i < elements.length; i++) {
+      if (elements[i].constructor.name === 'HTMLDivElement') {
+        const { style } = elements[i] as HTMLDivElement
+        style.display =
+          (elements[i].classList.contains(`game-${game}`) || elements[i].classList.contains('game-hl2base')) &&
+          elements[i].classList.contains(`type-${type}`)
+            ? 'block'
+            : 'none'
+      }
+    }
+
+    return
+  }
+
+  private _formElements(): JSX.Element[] {
+    for (const [key, entries] of Object.entries(configs)) {
+      const [game, runAt] = key.split('-')
+
+      this._inputGroups(game, runAt, entries)
+    }
+
+    return this._groupsToElementList()
+  }
+
+  private _groupsToElementList(): JSX.Element[] {
     const groupedInputs: JSX.Element[] = []
 
-    for (const [group, inputs] of Object.entries(entries)) {
-      groupedInputs.push(<h3 className={`${game} ${runAt}`}>{group}</h3>)
-      groupedInputs.push(...this._fromGroups(game, runAt, inputs as Inputs[]))
+    for (const [group, inputs] of Object.entries(this._groups)) {
+      groupedInputs.push(<h3 className={`toggle-config ${inputs.header.join(' ')}`}>{group}</h3>)
+      groupedInputs.push(...Object.values(inputs.inputs))
     }
 
     return groupedInputs
   }
 
-  private _fromGroups(game: string, runAt: string, inputs: Inputs[]): JSX.Element[] {
-    const inputElements: JSX.Element[] = []
+  private _inputGroups(game: string, runAt: string, entries: IConfig): void {
+    for (const [group, inputs] of Object.entries(entries)) {
+      if (!inputs.length) {
+        continue
+      }
 
-    for (const input of inputs) {
-      if ('values' in input) {
-        inputElements.push(this._selectFormGroup(game, runAt, input))
-      } else if ('step' in input) {
-        inputElements.push(this._numericInputFormGroup(game, runAt, input))
+      if (this._groups[group]) {
+        this._groups[group].header.push(`game-${game}`)
+
+        if (!this._groups[group].header.includes(`type-${runAt}`)) {
+          this._groups[group].header.push(`type-${game}`)
+        }
       } else {
-        inputElements.push(this._stringInputFormGroup(game, runAt, input))
+        this._groups[group] = {
+          header: [`type-${runAt}`, `game-${game}`],
+          inputs: {}
+        }
+      }
+
+      this._formGroups(group, game, runAt, inputs)
+    }
+  }
+
+  private _formGroups(group: string, game: string, runAt: string, inputs: Inputs[]): void {
+    for (const input of inputs) {
+      if (!this._groups[group].inputs[input.name]) {
+        this._groups[group].inputs[input.name] = this._formGroup(game, runAt, input)
       }
     }
+  }
 
-    return inputElements
+  private _formGroup(game: string, runAt: string, input: Inputs): JSX.Element {
+    if ('values' in input) {
+      return this._selectFormGroup(game, runAt, input)
+    }
+
+    if ('step' in input) {
+      return this._numericInputFormGroup(game, runAt, input)
+    }
+
+    return this._stringInputFormGroup(game, runAt, input)
   }
 
   private _selectFormGroup(game: string, runAt: string, input: ISelectNumber | ISelectString): JSX.Element {
     return (
-      <div className={`form-group ${game} ${runAt}`}>
+      <div className={`form-group toggle-config game-${game} type-${runAt}`}>
         {this._label(input.name)}
         <select
           className="form-control form-control-sm"
@@ -149,7 +193,7 @@ export class GenerateConfigs extends React.Component {
 
   private _numericInputFormGroup(game: string, runAt: string, input: IInputNumber): JSX.Element {
     return (
-      <div className={`form-group ${game} ${runAt}`}>
+      <div className={`form-group toggle-config game-${game} type-${runAt}`}>
         {this._label(input.name)}
         <input
           type="number"
@@ -168,7 +212,7 @@ export class GenerateConfigs extends React.Component {
 
   private _stringInputFormGroup(game: string, runAt: string, input: IInputString): JSX.Element {
     return (
-      <div className={`form-group ${game} ${runAt}`}>
+      <div className={`form-group toggle-config game-${game} type-${runAt}`}>
         {this._label(input.name)}
         <input
           type="number"
@@ -196,6 +240,18 @@ export class GenerateConfigs extends React.Component {
       <small id={`${name}Help`} className="form-text text-muted">
         {description}
       </small>
+    )
+  }
+
+  private _download(): JSX.Element {
+    return (
+      <div className="form-row">
+        <a id="download_link" download="ub.cfg" href="javascript:void(0)">
+          <button type="button" className="btn btn-primary" onClick={this.onClick}>
+            Erstellen
+          </button>
+        </a>
+      </div>
     )
   }
 
@@ -243,10 +299,15 @@ ${this._configGroups()}
   }
 
   private _configGroups(): string {
+    const selectedConfig = String(this._selectedValue('configSelect'))
+
+    if (!selectedConfig || !configs[selectedConfig]) {
+      return ''
+    }
+
     const groupedInputs: string[] = []
 
-    // TODO: game from selector
-    for (const [group, inputs] of Object.entries(this._configs['css-client'])) {
+    for (const [group, inputs] of Object.entries(this._mergeDeep(selectedConfig))) {
       groupedInputs.push(`//******${group}******//\n`)
       groupedInputs.push(this._configValues(inputs))
       groupedInputs.push('\n')
@@ -255,21 +316,62 @@ ${this._configGroups()}
     return groupedInputs.join('\n')
   }
 
+  private _mergeDeep(selectedConfig: string): IConfig {
+    const combinedConfig: IConfig = {}
+
+    // TODO: more selective once there is more than hl2 clients
+    for (const [group, inputs] of Object.entries(configs['hl2base-client'])) {
+      if (inputs.length) {
+        combinedConfig[group] = inputs.concat([])
+      }
+    }
+
+    const gameConfig: IConfig = configs[selectedConfig]
+
+    for (const [group, inputs] of Object.entries(gameConfig)) {
+      if (!inputs.length) {
+        continue
+      }
+
+      if (combinedConfig[group]) {
+        combinedConfig[group] = combinedConfig[group].concat(inputs)
+      } else {
+        combinedConfig[group] = inputs.concat([])
+      }
+    }
+
+    return combinedConfig
+  }
+
   private _configValues(inputs: Inputs[]): string {
     const inputValues: string[] = []
 
     for (const input of inputs) {
-      if ('values' in input) {
-        const element = document.getElementById(input.name) as HTMLSelectElement
+      const inputValue = 'values' in input ? this._selectedValue(input.name) : this._inputValue(input.name)
 
-        if (element) {
-          inputValues.push(`// ${input.description}`)
-          // TODO: escape quotes for strings once we have string values
-          inputValues.push(`${input.name} "${element.options[element.selectedIndex].value}"\n`)
-        }
+      if (inputValue !== undefined) {
+        inputValues.push(`// ${input.description}`)
+        // TODO: escape quotes for strings once we have string values
+        inputValues.push(`${input.name} "${inputValue}"\n`)
       }
     }
 
     return inputValues.join('\n')
+  }
+
+  private _selectedValue(id: string): number | string | undefined {
+    const element = document.getElementById(id) as HTMLSelectElement
+
+    if (element) {
+      return element.options[element.selectedIndex].value
+    }
+  }
+
+  private _inputValue(id): string | number | undefined {
+    const element = document.getElementById(id) as HTMLInputElement
+
+    if (element) {
+      return element.value
+    }
   }
 }
