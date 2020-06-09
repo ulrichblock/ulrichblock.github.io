@@ -95,6 +95,12 @@ module.exports = {
       rules: {
         '@typescript-eslint/explicit-function-return-type': 'off'
       }
+    },
+    {
+      files: ['src/components/generate-configs/config-client-*.ts'],
+      rules: {
+        'sort-keys': 'off'
+      }
     }
   ]
 }

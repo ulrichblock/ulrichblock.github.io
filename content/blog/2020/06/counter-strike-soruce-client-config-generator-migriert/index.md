@@ -14,7 +14,7 @@ Das Herz der Logik steckt in der Komponente [GenerateConfigs.tsx](https://github
 Sie wird in der Seite [password-generator.tsx](https://github.com/ulrichblock/ulrichblock.github.io/src/pages/generatoren/password-generator.tsx) eingebunden.
 
 An Stelle die unterschiedlichen Formulare, wie vor fast 10 Jahren hart zu programmieren, bin ich diesmal einem generischen Ansatz gefolgt.
-Im [JSON Format](https://github.com/ulrichblock/ulrichblock.github.io/src/components/generate-configs/config-client-css.json) werden die einzelnen Config Werte beschrieben.
+Im [JSON Format](https://github.com/ulrichblock/ulrichblock.github.io/src/components/generate-configs/config-client-css.ts) werden die einzelnen Config Werte beschrieben.
 Ausgehend von dem JSON Format wird im ersten Schritt das Formular erstellt.
 
 Auf dem onClick Event des **Erstellen** Buttons ist ein Event Handler registriert.
