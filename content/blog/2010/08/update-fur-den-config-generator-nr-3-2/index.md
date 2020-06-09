@@ -7,7 +7,7 @@ date: "2010-08-27"
 
 In letzter Zeit hat es ja nur so Counter-Strike Source Updates gehagelt. Dabei sind einige CVARS verschwunden und andere neu eingeführt worden.
 
-Ich habe den [Config Generator](/config-generator) nun angepasst und auf den neuesten Stand gebracht.
+Ich habe den [Config Generator](/generatoren/config-generator/) nun angepasst und auf den neuesten Stand gebracht.
 
 Bei der server.cfg sind folgende CVARS hinzugekommen:
 

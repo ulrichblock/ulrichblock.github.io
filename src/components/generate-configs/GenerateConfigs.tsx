@@ -51,6 +51,7 @@ interface IInputConfig {
 }
 
 export class GenerateConfigs extends React.Component {
+  private _downloadUrl: string | null = null
   private _configs: IInputConfig = {
     'css-client': clientCss as IConfig
   }
@@ -67,7 +68,7 @@ export class GenerateConfigs extends React.Component {
   private _download(): JSX.Element {
     return (
       <div className="form-row">
-        <a id="download_link" download="ub.cfg" href="">
+        <a id="download_link" download="ub.cfg" href="javascript:void(0)">
           <button type="button" className="btn btn-primary" onClick={this.onClick}>
             Erstellen
           </button>
@@ -199,16 +200,19 @@ export class GenerateConfigs extends React.Component {
   }
 
   onClick = (): void => {
-    console.log('clicked')
-    console.log(this._config())
-    const data = new Blob([this._config()], { type: 'text/plain' })
-    const url = window.URL.createObjectURL(data)
-
     const anchor = document.getElementById('download_link') as HTMLAnchorElement
 
-    if (anchor && 'href' in anchor) {
-      anchor.href = url
+    if (!anchor || !('href' in anchor)) {
+      return
     }
+
+    if (this._downloadUrl) {
+      window.URL.revokeObjectURL(this._downloadUrl)
+    }
+
+    this._downloadUrl = window.URL.createObjectURL(new Blob([this._config()], { type: 'text/plain;charset=utf-8' }))
+
+    anchor.setAttribute('href', this._downloadUrl)
   }
 
   private _config(): string {
@@ -259,9 +263,8 @@ ${this._configGroups()}
         const element = document.getElementById(input.name) as HTMLSelectElement
 
         if (element) {
-          // TODO: umlaute to "ue"
           inputValues.push(`// ${input.description}`)
-          // TODO: escape quotes for strings
+          // TODO: escape quotes for strings once we have string values
           inputValues.push(`${input.name} "${element.options[element.selectedIndex].value}"\n`)
         }
       }

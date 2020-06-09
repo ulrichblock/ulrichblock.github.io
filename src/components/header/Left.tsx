@@ -8,8 +8,8 @@ export const Left = (): JSX.Element => {
         <Link to="/" className="head-link">
           Home
         </Link>
-        <Link to="/generatoren/passwort-generator" className="head-link ml-3">
-          Passwort Generator
+        <Link to="/generatoren" className="head-link ml-3">
+          Generatoren
         </Link>
         <Link to="/impressum" className="head-link ml-3">
           Impressum
