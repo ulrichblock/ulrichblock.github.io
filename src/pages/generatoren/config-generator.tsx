@@ -1,4 +1,6 @@
+import { GenerateConfigs } from '../../components/generate-configs/GenerateConfigs'
 import { Layout } from '../../components/layout'
+import { Link } from 'gatsby'
 import React from 'react'
 import { SEO } from '../../components/seo'
 import { Sidebar } from '../../components/sidebar/Sidebar'
@@ -9,9 +11,12 @@ const ConfigGenerator = (): JSX.Element => (
     <div className="post-page-main">
       <div className="post-main">
         <h1>Config Generator</h1>
-        <p>
-          <i>Noch nicht nach Gatsby migriert.</i>
+        <p id="client">
+          Die Voreinstellungen sind f&uuml;r maximale FPS ausgelegt. Die fertige Datei downloaden und in der
+          autoexec.cfg Folgendes eintragen: <pre>exec ub.cfg</pre>
+          Alternativ kannst du auch diese <Link to="./autoexec.cfg">autoexec.cfg</Link> downloaden.
         </p>
+        <GenerateConfigs />
       </div>
 
       <div className="sidebar px-2 py-2">
