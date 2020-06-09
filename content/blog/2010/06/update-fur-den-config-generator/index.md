@@ -5,6 +5,6 @@ published: true
 date: "2010-06-10"
 ---
 
-Ich habe den [Config Generator](/config-generator) erweitert.  
+Ich habe den [Config Generator](/generatoren/config-generator/) erweitert.  
 Von nun an kann mit ihm auch eine Client Config für [Day of Defeat: Source](http://www.dayofdefeat.com/) erstellt werden.
 

@@ -66,6 +66,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-copy-files',
+      options: {
+        source: `${__dirname}/src/pages/generatoren/autoexec.cfg`,
+        destination: '/generatoren/config-generator/autoexec.cfg'
+      }
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [

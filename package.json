@@ -12,6 +12,7 @@
     "bootstrap": "^4.5.0",
     "gatsby": "^2.21.33",
     "gatsby-plugin-canonical-urls": "^2.3.2",
+    "gatsby-plugin-copy-files": "^1.0.3",
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-feed": "^2.5.1",
     "gatsby-plugin-offline": "^3.2.1",
@@ -65,7 +66,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "rm -rf .cache && gatsby develop",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"*.js\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
