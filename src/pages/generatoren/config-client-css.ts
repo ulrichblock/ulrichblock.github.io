@@ -1,4 +1,4 @@
-import { IConfig } from './config-types'
+import { IConfig } from '../../components/generate-configs/config-abstract'
 
 export const CLIENT_CSS: IConfig = {
   Grafik: [
@@ -74,16 +74,5 @@ export const CLIENT_CSS: IConfig = {
       max: 255,
       step: 1
     }
-  ],
-  'Texturen und Oberflaechen': [],
-  'Beleuchtung und Schatten': [],
-  'Wasser Rendering': [],
-  Models: [],
-  'Objekte, Spraylogos, usw.': [],
-  'Maus und Fadenkreuz': [],
-  'Net Graph': [],
-  'Net Settings': [],
-  'Multicore Rendering': [],
-  Sound: [],
-  Sonstiges: []
+  ]
 }

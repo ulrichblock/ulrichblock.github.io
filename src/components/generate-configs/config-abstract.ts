@@ -3,7 +3,7 @@ interface IBaseInput {
   description: string
 }
 
-interface ISelectOptionNumber {
+export interface ISelectOptionNumber {
   key: number
   value: string
 }
@@ -34,11 +34,36 @@ export interface IInputNumber extends IBaseInput {
 
 export interface IInputString extends IBaseInput {
   default: string
-  placeholder: string
+  placeholder?: string
+  required?: boolean
 }
 
 export type Inputs = ISelectNumber | ISelectString | IInputNumber | IInputString
 
 export interface IConfig {
   [key: string]: Array<Inputs>
+}
+
+export interface IConfigs {
+  [key: string]: IConfig
+}
+
+export const ON_OFF: ISelectOptionNumber[] = [
+  {
+    key: 0,
+    value: 'Aus'
+  },
+  {
+    key: 1,
+    value: 'An'
+  }
+]
+
+export interface IFormGroupContext {
+  game: string
+  runAt: string
+}
+
+export interface IFormGroupConfigDownloadProps {
+  configs?: IConfigs
 }
