@@ -1,4 +1,4 @@
-import { IConfig } from '../../components/generate-configs/config-abstract'
+import { IConfig } from '../config-abstract'
 
 export const CLIENT_CSS: IConfig = {
   Grafik: [

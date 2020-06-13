@@ -1,4 +1,4 @@
-import { IConfig, ON_OFF } from '../../components/generate-configs/config-abstract'
+import { IConfig, ON_OFF } from '../config-abstract'
 
 export const SERVER_TF2: IConfig = {
   Gameplay: [
