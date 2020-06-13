@@ -1,12 +1,12 @@
-import { CLIENT_CSS } from './config-client-css'
-import { CLIENT_DODS } from './config-client-dods'
-import { CLIENT_HL2_BASE } from './config-client-hl2-base'
-import { CLIENT_TF2 } from './config-client-tf2'
+import { CLIENT_CSS } from './client-css'
+import { CLIENT_DODS } from './client-dods'
+import { CLIENT_HL2_BASE } from './client-hl2-base'
+import { CLIENT_TF2 } from './client-tf2'
 import { IConfigs } from '../config-abstract'
-import { SERVER_CSS } from './config-server-css'
-import { SERVER_DODS } from './config-server-dods'
-import { SERVER_HL2_BASE } from './config-server-hl2-base'
-import { SERVER_TF2 } from './config-server-tf2'
+import { SERVER_CSS } from './server-css'
+import { SERVER_DODS } from './server-dods'
+import { SERVER_HL2_BASE } from './server-hl2-base'
+import { SERVER_TF2 } from './server-tf2'
 
 export const configs: IConfigs = {
   'css-client': CLIENT_CSS,
