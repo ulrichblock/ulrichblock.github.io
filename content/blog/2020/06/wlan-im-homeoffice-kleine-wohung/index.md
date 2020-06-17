@@ -1,8 +1,8 @@
 ---
 title: "WLAN im Home Office mit kleiner Wohnung"
 tags: ["WLAN", "Home Office"]
-published: false
-date: "2020-06-08"
+published: true
+date: "2020-06-16"
 ---
 
 Vor über einem Jahr haben mich Bekannte wegen WLAN Problemen im Home Office angesprochen.
