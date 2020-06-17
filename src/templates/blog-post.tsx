@@ -31,8 +31,9 @@ type PostListProps = PageProps<IData, IPageContext>
 const BlogPost = (props: PostListProps): JSX.Element => {
   const post = props.data.markdownRemark
   const siteName = props.data.site.siteMetadata.title
-  const siteUrl = props.data.site.siteMetadata.url
-  const url = `${siteUrl}${props.pageContext.slug}`
+  const siteUrl: string = props.data.site.siteMetadata.url
+  const slug: string = props.pageContext.slug
+  const url = `${siteUrl}${slug}`
   const tags = post.frontmatter.tags
 
   return (
