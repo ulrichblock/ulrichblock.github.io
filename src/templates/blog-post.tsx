@@ -1,11 +1,11 @@
-import './blog-post.scss'
 import { IData, ILabels } from '../types'
 import { PageProps, graphql } from 'gatsby'
+import Col from 'react-bootstrap/Col'
 import { CustomShareBlock } from '../components/CustomShareBlock'
-import { Layout } from '../components/layout'
+import { Layout } from '../components/Layout'
 import { PostHeader } from '../components/header/PostHeader'
 import React from 'react'
-import { SEO } from '../components/seo'
+import { SEO } from '../components/SEO'
 import { Sidebar } from '../components/sidebar/Sidebar'
 import { getTechTags } from '../components/tags/TechTags'
 
@@ -37,21 +37,21 @@ const BlogPost = (props: PostListProps): JSX.Element => {
 
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
-      <div className="post-page-main">
-        <div className="post-main">
-          <div className="mt-3">
-            <PostHeader date={post.frontmatter.date} timeToRead={post.timeToRead} title={post.frontmatter.title} />
-            <div className="mt-3" dangerouslySetInnerHTML={{ __html: post.html }} />
-            <CustomShareBlock title={post.frontmatter.title} siteName={siteName} url={url} />
-            {techTopics(props.data.site.siteMetadata.labels, tags)}
-          </div>
-        </div>
+      <SEO title="Blog Beitragsliste" />
+      <Col md={8}>
+        <PostHeader
+          className="border-bottom"
+          date={post.frontmatter.date}
+          timeToRead={post.timeToRead}
+          title={post.frontmatter.title}
+        />
 
-        <div className="sidebar px-2 py-2">
-          <Sidebar />
-        </div>
-      </div>
+        <div className="mt-3 d-inline" dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <CustomShareBlock title={post.frontmatter.title} siteName={siteName} url={url} />
+        {techTopics(props.data.site.siteMetadata.labels, tags)}
+      </Col>
+      <Sidebar />
     </Layout>
   )
 }

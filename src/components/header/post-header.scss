@@ -1,0 +1,12 @@
+// Do not highlight the link headlines at index and list page
+.blog-post-title > a {
+  text-decoration: none;
+}
+
+.blog-post-title > a:hover {
+  text-decoration: underline;
+}
+
+.blog-post-title > a:link, .blog-post-title > a:visited, .blog-post-title > a:visited, .blog-post-title > a:hover, .blog-post-title > a:active {
+  color: #212529;
+}

@@ -1,23 +1,19 @@
-import { GenerateConfigs } from '../../components/generate-configs/GenerateConfigs'
-import { Layout } from '../../components/layout'
+import Col from 'react-bootstrap/Col'
+import { GenerateConfigs } from '../../components/generators/configs/GenerateConfigs'
+import { Layout } from '../../components/Layout'
 import React from 'react'
-import { SEO } from '../../components/seo'
+import { SEO } from '../../components/SEO'
 import { Sidebar } from '../../components/sidebar/Sidebar'
-import { configs } from '../../components/generate-configs/configs'
+import { configs } from '../../components/generators/configs/config-variables'
 
 const ConfigGenerator = (): JSX.Element => (
   <Layout>
     <SEO title="Config Generator" />
-    <div className="post-page-main">
-      <div className="post-main">
-        <h1>Config Generator</h1>
-        <GenerateConfigs configs={configs} />
-      </div>
-
-      <div className="sidebar px-2 py-2">
-        <Sidebar />
-      </div>
-    </div>
+    <Col md={8}>
+      <h2 className="pb-4 mb-4 font-italic border-bottom">Config Generator</h2>
+      <GenerateConfigs configs={configs} />
+    </Col>
+    <Sidebar />
   </Layout>
 )
 

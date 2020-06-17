@@ -1,8 +1,12 @@
-.recent-posts > ul > li > a {
+.recent-posts > li > a {
   font-size: 1.0rem;
   text-decoration: none;
 }
 
-.recent-posts > ul > li > a:hover {
-  text-decoration: none;
+.recent-posts > li > a:hover {
+  text-decoration: underline;
+}
+
+.recent-posts > li > a:link, .recent-posts > li > a:visited, .recent-posts > li > a:visited, .recent-posts > li > a:hover, .recent-posts > li > a:active {
+  color: #212529;
 }

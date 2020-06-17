@@ -1,0 +1,17 @@
+// transparent nav bar
+.bg-custom-dark {
+  background: rgba(0, 0, 0, .6);
+  border-bottom: 1px solid rgba(252, 251, 247, .2);
+}
+
+// White transparent navbar text color
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(252, 251, 247, .8) !important;
+}
+
+// Hide the search und social buttons if the nav bar is collapsed
+@media only screen and (max-width: 991px) {
+  .header-icons {
+    display: none;
+  }
+}

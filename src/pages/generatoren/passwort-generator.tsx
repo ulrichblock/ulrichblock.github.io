@@ -1,7 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.css'
-import { Layout } from '../../components/layout'
+import { Layout } from '../../components/Layout'
 import React from 'react'
-import { SEO } from '../../components/seo'
+import { SEO } from '../../components/SEO'
 import { Sidebar } from '../../components/sidebar/Sidebar'
 
 function getNumeric(id: string, max: number, fallback: number): number {
