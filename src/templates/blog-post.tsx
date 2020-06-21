@@ -41,7 +41,7 @@ const BlogPost = (props: PostListProps): JSX.Element => {
       <SEO title="Blog Beitragsliste" />
       <Col md={8}>
         <PostHeader
-          className="border-bottom"
+          className="mb-4 font-italic border-bottom"
           date={post.frontmatter.date}
           timeToRead={post.timeToRead}
           title={post.frontmatter.title}

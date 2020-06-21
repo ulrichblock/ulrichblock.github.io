@@ -9,7 +9,7 @@ const PasswortGenerator = (): JSX.Element => (
   <Layout>
     <SEO title="Passwort Generator" />
     <Col md={8}>
-      <h2 className="pb-4 mb-4 font-italic border-bottom">Passwort Generator</h2>
+      <h2 className="mb-4 font-italic border-bottom">Passwort Generator</h2>
       <GeneratePasswords />
     </Col>
     <Sidebar />

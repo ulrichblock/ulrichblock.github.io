@@ -10,7 +10,7 @@ const ConfigGenerator = (): JSX.Element => (
   <Layout>
     <SEO title="Config Generator" />
     <Col md={8}>
-      <h2 className="pb-4 mb-4 font-italic border-bottom">Config Generator</h2>
+      <h2 className="mb-4 font-italic border-bottom">Config Generator</h2>
       <GenerateConfigs configs={configs} />
     </Col>
     <Sidebar />

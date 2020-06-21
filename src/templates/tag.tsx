@@ -23,7 +23,7 @@ const Tag = ({ pageContext, data }: TagProps): JSX.Element => {
     <Layout>
       <SEO title="Tech Tags" />
       <Col md={8}>
-        <h2 className="pb-4 mb-4 font-italic border-bottom">{tagHeader}</h2>
+        <h2 className="mb-4 font-italic border-bottom">{tagHeader}</h2>
 
         {posts.map(post => {
           return (

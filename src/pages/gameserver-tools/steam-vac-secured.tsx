@@ -9,7 +9,7 @@ const SteamVacSecured = (): JSX.Element => (
   <Layout>
     <SEO title="Steam + VAC Secured?" />
     <Col md={8}>
-      <h2 className="pb-4 mb-4 font-italic border-bottom">Steam + VAC Secured?</h2>
+      <h2 className="mb-4 font-italic border-bottom">Steam + VAC Secured?</h2>
       <div className="mt-3 d-inline">
         <p>
           Dies ist eine Abfrage, die die Steam API benutzt. Das Grundprinzip kann man sich bei dem Blogpost

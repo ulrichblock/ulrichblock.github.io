@@ -8,7 +8,7 @@ const SteamApps = (): JSX.Element => (
   <Layout>
     <SEO title="Steam Apps" />
     <Col md={8}>
-      <h2 className="pb-4 mb-4 font-italic border-bottom">Steam Apps</h2>
+      <h2 className="mb-4 font-italic border-bottom">Steam Apps</h2>
       <div className="mt-3 d-inline">
         <p>
           <i>Noch nicht nach Gatsby migriert.</i>
