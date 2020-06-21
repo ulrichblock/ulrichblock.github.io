@@ -247,7 +247,7 @@ module.exports = {
       options: {
         printRejected: true, // Print removed selectors and processed file names
         develop: false, // Enable while using 'gatsby develop'
-        ignore: ['node_modules/prismjs/', '/layout.scss', '/prism-custom.scss']
+        ignore: ['node_modules/prismjs/', '/prism-custom.scss', '/nav-bar.scss', '/layout.scss']
       }
     },
     {
