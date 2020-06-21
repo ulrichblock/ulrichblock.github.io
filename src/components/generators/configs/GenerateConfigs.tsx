@@ -1,4 +1,5 @@
 import { IConfig, IFormGroupConfigDownloadProps, Inputs } from './config-abstract'
+import Form from 'react-bootstrap/Form'
 import { FormGroupConfigDownload } from './FormGroupConfigDownload'
 import { FormGroupConfigSelect } from './FormGroupConfigSelect'
 import { FormGroupNumberInput } from './FormGroupNumberInput'
@@ -25,13 +26,13 @@ export class GenerateConfigs extends React.Component<IFormGroupConfigDownloadPro
 
   public render(): JSX.Element {
     return (
-      <form>
+      <Form>
         <FormGroupConfigSelect />
         <HL2ClientText />
         <HL2ServerText />
         {this._formElements()}
         <FormGroupConfigDownload configs={this.props.configs} />
-      </form>
+      </Form>
     )
   }
 
@@ -70,7 +71,7 @@ export class GenerateConfigs extends React.Component<IFormGroupConfigDownloadPro
 
       if (this._groups[group]) {
         if (!this._groups[group].header.includes(`type-${runAt}`)) {
-          this._groups[group].header.push(`type-${game}`)
+          this._groups[group].header.push(`type-${runAt}`)
         }
 
         if (!this._groups[group].header.includes(`game-${game}`)) {

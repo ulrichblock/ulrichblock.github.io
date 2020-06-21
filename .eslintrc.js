@@ -97,7 +97,7 @@ module.exports = {
       }
     },
     {
-      files: ['src/components/generate-configs/configs/{client,server}-*.ts'],
+      files: ['src/components/generators/configs/config-variables/{client,server}-*.ts'],
       rules: {
         'sort-keys': 'off'
       }

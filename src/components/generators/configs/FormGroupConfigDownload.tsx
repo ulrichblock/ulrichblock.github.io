@@ -1,5 +1,7 @@
 import { IConfig, Inputs } from './config-abstract'
 import { AbstractForm } from './AbstractForm'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 import React from 'react'
 
 export class FormGroupConfigDownload extends AbstractForm {
@@ -7,17 +9,17 @@ export class FormGroupConfigDownload extends AbstractForm {
 
   render(): JSX.Element {
     return (
-      <div className="form-row">
+      <Form.Row className="float-right">
         <a id="download_link" download="ub.cfg" href="javascript:void(0)">
-          <button type="button" className="btn btn-primary" onClick={this.onClick}>
+          <Button variant="primary" type="button" onClick={this._onClick}>
             Erstellen
-          </button>
+          </Button>
         </a>
-      </div>
+      </Form.Row>
     )
   }
 
-  onClick = (): void => {
+  _onClick = (): void => {
     const anchor = document.getElementById('download_link') as HTMLAnchorElement
 
     if (!anchor || !('href' in anchor)) {

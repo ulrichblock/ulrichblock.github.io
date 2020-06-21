@@ -1,6 +1,5 @@
 import { IFormGroupContext, IInputNumber } from './config-abstract'
-import { FormGroupHelpText } from './FormGroupHelpText'
-import { FormGroupLabel } from './FormGroupLabel'
+import Form from 'react-bootstrap/Form'
 import React from 'react'
 
 interface IFormGroupNumberInputProps extends IFormGroupContext {
@@ -10,19 +9,21 @@ interface IFormGroupNumberInputProps extends IFormGroupContext {
 
 export const FormGroupNumberInput = ({ game, input, runAt, show }: IFormGroupNumberInputProps): JSX.Element => {
   return (
-    <div className={`form-group toggle-config game-${game} type-${runAt}`} style={{ display: show ? 'block' : 'none' }}>
-      <FormGroupLabel input={input} />
-      <input
-        type="number"
-        className="form-control form-control-sm"
+    <Form.Group className={`toggle-config game-${game} type-${runAt}`} style={{ display: show ? 'block' : 'none' }}>
+      <Form.Label htmlFor={input.name}>{input.name}</Form.Label>
+      <Form.Control
         id={input.name}
         aria-describedby={`${input.name}Help`}
         defaultValue={input.default}
         min={input.min}
         max={input.max}
         step={input.step}
+        type="number"
+        size="sm"
       />
-      <FormGroupHelpText input={input} />
-    </div>
+      <Form.Text id={`${input.name}Help`} className="text-muted">
+        {input.description}
+      </Form.Text>
+    </Form.Group>
   )
 }
