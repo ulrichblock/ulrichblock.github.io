@@ -1,10 +1,10 @@
 import { Link, PageProps, graphql } from 'gatsby'
 import Col from 'react-bootstrap/Col'
 import { IData } from '../types'
-import { Layout } from '../components/Layout'
+import { Layout } from '../components/Layout2'
 import { PostHeader } from '../components/header/PostHeader'
 import React from 'react'
-import { SEO } from '../components/SEO'
+import { SEO } from '../components/SEO2'
 import { Sidebar } from '../components/sidebar/Sidebar'
 import { getTechTags } from '../components/tags/TechTags'
 
