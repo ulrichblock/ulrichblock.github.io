@@ -59,6 +59,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images`,
+        name: 'images'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: URL,
@@ -239,7 +246,8 @@ module.exports = {
       resolve: 'gatsby-plugin-purgecss',
       options: {
         printRejected: true, // Print removed selectors and processed file names
-        develop: false // Enable while using 'gatsby develop'
+        develop: false, // Enable while using 'gatsby develop'
+        ignore: ['node_modules/prismjs/', '/prism-custom.scss', '/nav-bar.scss', '/layout.scss']
       }
     },
     {

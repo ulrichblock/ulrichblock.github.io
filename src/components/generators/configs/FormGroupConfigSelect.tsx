@@ -1,6 +1,5 @@
 import { AbstractForm } from './AbstractForm'
-import { FormGroupHelpText } from './FormGroupHelpText'
-import { IInputString } from './config-abstract'
+import Form from 'react-bootstrap/Form'
 import React from 'react'
 import { formGroupSelectOptions } from './formGroupSelectOptions'
 
@@ -16,29 +15,17 @@ export class FormGroupConfigSelect extends AbstractForm {
     ]
 
     return (
-      <div className="form-group">
-        <label htmlFor="configSelect" className="col-form-label col-form-label-sm">
-          Art der Config
-        </label>
-        <select
-          className="form-control form-control-sm"
-          id="configSelect"
-          aria-describedby={'configSelectHelp'}
-          defaultValue="css-client"
-          onChange={this.onConfigSelected}
-        >
+      <Form.Group controlId="configSelect">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control as="select" size="sm" onChange={this._onConfigSelected} defaultValue="css-client">
           {formGroupSelectOptions(options)}
-        </select>
-        <FormGroupHelpText
-          input={
-            { description: 'Spiel und Typ der zu erstellenden Config Datei.', name: 'configSelectHelp' } as IInputString
-          }
-        />
-      </div>
+        </Form.Control>
+        <Form.Text className="text-muted">Spiel und Typ der zu erstellenden Config Datei.</Form.Text>
+      </Form.Group>
     )
   }
 
-  onConfigSelected = (): undefined => {
+  _onConfigSelected = (): undefined => {
     const [game, type] = String(this._selectedValue('configSelect')).split('-')
     const elements = document.getElementsByClassName('toggle-config')
 

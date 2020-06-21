@@ -1,15 +1,16 @@
-import { Layout } from '../../components/layout'
+import Col from 'react-bootstrap/Col'
+import { Layout } from '../../components/Layout'
 import { Link } from 'gatsby'
 import React from 'react'
-import { SEO } from '../../components/seo'
+import { SEO } from '../../components/SEO'
 import { Sidebar } from '../../components/sidebar/Sidebar'
 
 const SteamVacSecured = (): JSX.Element => (
   <Layout>
     <SEO title="Steam + VAC Secured?" />
-    <div className="post-page-main">
-      <div className="post-main">
-        <h1>Steam + VAC Secured?</h1>
+    <Col md={8}>
+      <h2 className="mb-4 font-italic border-bottom">Steam + VAC Secured?</h2>
+      <div className="mt-3 d-inline">
         <p>
           Dies ist eine Abfrage, die die Steam API benutzt. Das Grundprinzip kann man sich bei dem Blogpost
           <Link to="/ist-mein-server-steam-secured/">Ist mein Server Steam Secured?</Link> anschauen.
@@ -27,11 +28,8 @@ const SteamVacSecured = (): JSX.Element => (
           Port eingeben. In diesem Fall werden alle Server der IP gelistet, die den Steam Masterserver bekannt sind.
         </p>
       </div>
-
-      <div className="sidebar px-2 py-2">
-        <Sidebar />
-      </div>
-    </div>
+    </Col>
+    <Sidebar />
   </Layout>
 )
 

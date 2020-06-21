@@ -1,9 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.css'
-import '../pages/index.scss'
 import { StaticQuery, graphql } from 'gatsby'
-import { Layout } from '../components/layout'
+import { Layout } from '../components/Layout'
 import React from 'react'
-import { SEO } from '../components/seo'
+import { SEO } from '../components/SEO'
 import { Search } from '../components/search/Search'
 import { Sidebar } from '../components/sidebar/Sidebar'
 

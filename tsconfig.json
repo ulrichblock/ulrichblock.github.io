@@ -24,7 +24,7 @@
     "typeRoots": [
       "./node_modules/@types"
     ],
-    "resolveJsonModule": true,
+    "resolveJsonModule": false,
     "esModuleInterop": true
   },
   "include": ["./.*.js", "*.js", "**/*.ts", "**/*.tsx" ],

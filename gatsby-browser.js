@@ -2,6 +2,11 @@
  * custom typefaces
  */
 
+/**
+ * Bootstrap 4
+ */
+import 'bootstrap/dist/css/bootstrap.css'
+
 /*
  * Code syntax highlighting with prism.
  */

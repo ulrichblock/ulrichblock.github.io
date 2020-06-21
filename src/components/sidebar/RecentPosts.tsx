@@ -30,10 +30,8 @@ function getPostLinks(posts: IPost[]): JSX.Element[] {
     }
 
     postLinks.push(
-      <li className="m-0">
-        <Link to={posts[i].node.fields.slug} className="">
-          {posts[i].node.frontmatter.title}
-        </Link>
+      <li key={`recent-post-${i}`}>
+        <Link to={posts[i].node.fields.slug}>{posts[i].node.frontmatter.title}</Link>
       </li>
     )
   }
@@ -43,11 +41,9 @@ function getPostLinks(posts: IPost[]): JSX.Element[] {
 
 export const RecentPosts = ({ posts }: IProps): JSX.Element => {
   return (
-    <>
-      <h4 className="m-0">Letzte Artikel</h4>
-      <div className="d-block recent-posts mt-2">
-        <ul>{getPostLinks(posts)}</ul>
-      </div>
-    </>
+    <div className="p-4">
+      <h4 className="font-italic">Letzte Artikel</h4>
+      <ul className="list-unstyled mb-0 recent-posts">{getPostLinks(posts)}</ul>
+    </div>
   )
 }

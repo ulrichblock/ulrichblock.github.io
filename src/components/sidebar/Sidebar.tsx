@@ -1,8 +1,8 @@
-import './sidebar.scss'
 import { StaticQuery, graphql } from 'gatsby'
 import { Bio } from './Bio'
 import React from 'react'
 import { RecentPosts } from './RecentPosts'
+import { SocialLinks } from './SocialLinks'
 import { TechTags } from './TechTags'
 
 export const Sidebar = (): JSX.Element => {
@@ -52,15 +52,12 @@ export const Sidebar = (): JSX.Element => {
         }
       `}
       render={(data): JSX.Element => (
-        <>
-          <div className="sidebar-main border-left">
-            <Bio author={data.site.siteMetadata.author} tagline={data.site.siteMetadata.tagline} />
-            <div className="tech-tags mt-3">
-              <RecentPosts posts={data.allMarkdownRemark.edges} />
-              <TechTags labels={data.site.siteMetadata.labels} posts={data.allMarkdownRemark.edges} />
-            </div>
-          </div>
-        </>
+        <aside className="col-md-4 blog-sidebar border-left">
+          <Bio author={data.site.siteMetadata.author} tagline={data.site.siteMetadata.tagline} />
+          <RecentPosts posts={data.allMarkdownRemark.edges} />
+          <TechTags labels={data.site.siteMetadata.labels} posts={data.allMarkdownRemark.edges} />
+          <SocialLinks contacts={data.site.siteMetadata.contacts} />
+        </aside>
       )}
     />
   )

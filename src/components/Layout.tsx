@@ -5,11 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import 'bootstrap/dist/css/bootstrap.css'
 import './layout.scss'
 import React, { ReactNode } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import { Header } from './header/header'
+import { Footer } from './footer/Footer'
+import { NavBar } from './header/NavBar'
+import Row from 'react-bootstrap/Row'
 
 interface IProps {
   children?: ReactNode
@@ -36,30 +37,15 @@ export const Layout = ({ children }: IProps): JSX.Element => {
       `}
       render={data => (
         <>
-          <Header
+          <NavBar
             siteTitle={data.site.siteMetadata.title}
             author={data.site.siteMetadata.author}
             contacts={data.site.siteMetadata.contacts}
           />
-          <div
-            style={{
-              margin: '0 auto',
-              padding: '0px 1.0875rem 1.45rem',
-              paddingTop: 0
-            }}
-          >
-            <main className="p-4">{children}</main>
-            <footer className="text-center">
-              <hr />
-              <p className="d-inline">
-                © {new Date().getFullYear()}{' '}
-                <a className="text-info" href="https://www.ulrich-block.de/">
-                  Ulrich Block
-                </a>
-                .
-              </p>
-            </footer>
-          </div>
+          <main id="main" role="main" className="container ">
+            <Row>{children}</Row>
+          </main>
+          <Footer />
         </>
       )}
     />

@@ -62,9 +62,9 @@ function getTechTags(allTags: ILabels[], posts: IPost[]): JSX.Element[] {
  */
 export const TechTags = ({ labels, posts }: IProps): JSX.Element => {
   return (
-    <>
-      <h4 className="m-0">Tech Topics</h4>
-      <div className="d-block pl-2">{getTechTags(labels, posts)}</div>
-    </>
+    <div className="p-4">
+      <h4 className="font-italic">Tech Topics</h4>
+      {getTechTags(labels, posts)}
+    </div>
   )
 }
