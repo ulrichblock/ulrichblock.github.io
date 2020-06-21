@@ -1,8 +1,8 @@
 import Col from 'react-bootstrap/Col'
 import { GenerateConfigs } from '../../components/generators/configs/GenerateConfigs'
-import { Layout } from '../../components/Layout2'
+import { Layout } from '../../components/Layout'
 import React from 'react'
-import { SEO } from '../../components/SEO2'
+import { SEO } from '../../components/SEO'
 import { Sidebar } from '../../components/sidebar/Sidebar'
 import { configs } from '../../components/generators/configs/config-variables'
 

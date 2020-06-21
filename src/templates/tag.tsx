@@ -1,9 +1,9 @@
 import { Link, PageProps, graphql } from 'gatsby'
 import Col from 'react-bootstrap/Col'
 import { IData } from '../types'
-import { Layout } from '../components/Layout2'
+import { Layout } from '../components/Layout'
 import React from 'react'
-import { SEO } from '../components/SEO2'
+import { SEO } from '../components/SEO'
 import { Sidebar } from '../components/sidebar/Sidebar'
 import { getTechTags } from '../components/tags/TechTags'
 
