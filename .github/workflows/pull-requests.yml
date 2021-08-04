@@ -10,9 +10,9 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: install node v12
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 12
       - name: yarn install
@@ -26,13 +26,13 @@ jobs:
   yaml-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: yaml-lint
         uses: ibiqlik/action-yamllint@v1
   test-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: ${{ secrets.GATSBY_ACCES_TOKEN }}
