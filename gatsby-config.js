@@ -35,6 +35,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -221,7 +222,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        sitemapSize: 500
+        entryLimit: 500
       }
     },
     'gatsby-plugin-robots-txt',

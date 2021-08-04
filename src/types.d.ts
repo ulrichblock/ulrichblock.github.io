@@ -15,7 +15,7 @@ interface IBoundActionCreators {
     toPath: string
   }) => void
 }
-export type GatsbyCreatePages = (fns: { graphql: any; boundActionCreators: IBoundActionCreators }) => void
+export type GatsbyCreatePages = (fns: { graphql: any; actions: IBoundActionCreators }) => void
 
 export interface IContacts {
   linkedin: string

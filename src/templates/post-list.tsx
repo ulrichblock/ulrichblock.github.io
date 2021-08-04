@@ -49,12 +49,24 @@ const PostList = (props: PostListProps): JSX.Element => {
 
         <nav className="blog-pagination">
           {!isFirst && (
-            <Link to={prevPage} rel="next" className="btn btn-outline-secondary" tabIndex={-1} aria-disabled={true}>
+            <Link
+              to={`/${prevPage}`}
+              rel="prev"
+              className="btn btn-outline-secondary"
+              tabIndex={-1}
+              aria-disabled={true}
+            >
               ← Vorherige Seite
             </Link>
           )}
           {!isLast && (
-            <Link to={nextPage} rel="next" className="btn btn-outline-secondary" tabIndex={-1} aria-disabled={true}>
+            <Link
+              to={`/${nextPage}`}
+              rel="next"
+              className="btn btn-outline-secondary"
+              tabIndex={-1}
+              aria-disabled={true}
+            >
               N&auml;chste Seite →
             </Link>
           )}
