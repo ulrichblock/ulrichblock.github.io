@@ -2,10 +2,7 @@ import { GatsbyCreatePages } from '../types'
 import { kebabCase } from './utils'
 import path from 'path'
 
-export const createPages: GatsbyCreatePages = async ({
-  graphql,
-  boundActionCreators: { createPage }
-}): Promise<void> => {
+export const createPages: GatsbyCreatePages = async ({ graphql, actions: { createPage } }): Promise<void> => {
   const result = await graphql(`
     query CreatePagesQuery {
       allMarkdownRemark(filter: { frontmatter: { published: { eq: true } } }) {

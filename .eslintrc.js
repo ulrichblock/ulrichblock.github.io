@@ -6,8 +6,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'prettier/@typescript-eslint'
+    'plugin:@typescript-eslint/recommended-requiring-type-checking'
   ],
   settings: {
     react: {

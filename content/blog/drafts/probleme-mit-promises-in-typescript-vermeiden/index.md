@@ -2,7 +2,7 @@
 title: "Probleme mit Promises in Typescript vermeiden"
 tags: ["typescript", "nodejs"]
 published: false
-date: "2020-06-30"
+date: "2020-06-09"
 ---
 
 Im Zusammenspiel mit Typescript geht die Fehlersuche sehr weit. Insbesondere das Auffinden von falscher Promise Nutzung spart einen viele Kopfschmerzen im späteren Betrieb:

@@ -1,6 +1,6 @@
 import './bio.scss'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 
 interface IProps {
@@ -15,18 +15,16 @@ export const Bio = ({ tagline }: IProps): JSX.Element => {
         query {
           file(relativePath: { eq: "profile-pic.jpg" }) {
             childImageSharp {
-              fixed(width: 100, height: 100) {
-                ...GatsbyImageSharpFixed
-              }
+              gatsbyImageData(layout: FIXED)
             }
           }
         }
       `}
       render={data => (
         <div className="p-4 mb-1">
-          <Img
+          <GatsbyImage
             key="side-bar-profile-img"
-            fixed={data.file.childImageSharp.fixed}
+            image={data.file.childImageSharp.gatsbyImageData}
             style={{ maxWidth: '100px' }}
             className="sidebar-profile-img"
             alt=""

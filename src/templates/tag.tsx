@@ -49,7 +49,7 @@ const Tag = ({ pageContext, data }: TagProps): JSX.Element => {
 }
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query ($tag: String) {
     site {
       siteMetadata {
         title
